@@ -236,31 +236,25 @@
           "lib/net472/System.Reactive.dll": {}
         }
       },
-      "System.Runtime.CompilerServices.Unsafe/4.5.3": {
+      "System.Runtime.CompilerServices.Unsafe/4.6.0-preview.18571.3": {
         "type": "package",
-        "frameworkAssemblies": [
-          "mscorlib"
-        ],
         "compile": {
-          "ref/net461/System.Runtime.CompilerServices.Unsafe.dll": {}
+          "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
         },
         "runtime": {
-          "lib/net461/System.Runtime.CompilerServices.Unsafe.dll": {}
+          "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
         }
       },
-      "System.Threading.Tasks.Extensions/4.5.4": {
+      "System.Threading.Tasks.Extensions/4.6.0-preview.18571.3": {
         "type": "package",
         "dependencies": {
-          "System.Runtime.CompilerServices.Unsafe": "4.5.3"
+          "System.Runtime.CompilerServices.Unsafe": "4.6.0-preview.18571.3"
         },
-        "frameworkAssemblies": [
-          "mscorlib"
-        ],
         "compile": {
-          "lib/net461/System.Threading.Tasks.Extensions.dll": {}
+          "lib/netstandard2.0/System.Threading.Tasks.Extensions.dll": {}
         },
         "runtime": {
-          "lib/net461/System.Threading.Tasks.Extensions.dll": {}
+          "lib/netstandard2.0/System.Threading.Tasks.Extensions.dll": {}
         }
       },
       "System.ValueTuple/4.5.0": {
@@ -273,6 +267,19 @@
         },
         "runtime": {
           "lib/net47/System.ValueTuple.dll": {}
+        }
+      },
+      "Victoria/4.0.7": {
+        "type": "package",
+        "dependencies": {
+          "Discord.Net.WebSocket": "2.0.1",
+          "System.Threading.Tasks.Extensions": "4.6.0-preview.18571.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/Victoria.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Victoria.dll": {}
         }
       }
     },
@@ -511,31 +518,25 @@
           "lib/net472/System.Reactive.dll": {}
         }
       },
-      "System.Runtime.CompilerServices.Unsafe/4.5.3": {
+      "System.Runtime.CompilerServices.Unsafe/4.6.0-preview.18571.3": {
         "type": "package",
-        "frameworkAssemblies": [
-          "mscorlib"
-        ],
         "compile": {
-          "ref/net461/System.Runtime.CompilerServices.Unsafe.dll": {}
+          "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
         },
         "runtime": {
-          "lib/net461/System.Runtime.CompilerServices.Unsafe.dll": {}
+          "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
         }
       },
-      "System.Threading.Tasks.Extensions/4.5.4": {
+      "System.Threading.Tasks.Extensions/4.6.0-preview.18571.3": {
         "type": "package",
         "dependencies": {
-          "System.Runtime.CompilerServices.Unsafe": "4.5.3"
+          "System.Runtime.CompilerServices.Unsafe": "4.6.0-preview.18571.3"
         },
-        "frameworkAssemblies": [
-          "mscorlib"
-        ],
         "compile": {
-          "lib/net461/System.Threading.Tasks.Extensions.dll": {}
+          "lib/netstandard2.0/System.Threading.Tasks.Extensions.dll": {}
         },
         "runtime": {
-          "lib/net461/System.Threading.Tasks.Extensions.dll": {}
+          "lib/netstandard2.0/System.Threading.Tasks.Extensions.dll": {}
         }
       },
       "System.ValueTuple/4.5.0": {
@@ -548,6 +549,19 @@
         },
         "runtime": {
           "lib/net47/System.ValueTuple.dll": {}
+        }
+      },
+      "Victoria/4.0.7": {
+        "type": "package",
+        "dependencies": {
+          "Discord.Net.WebSocket": "2.0.1",
+          "System.Threading.Tasks.Extensions": "4.6.0-preview.18571.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/Victoria.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Victoria.dll": {}
         }
       }
     }
@@ -962,39 +976,37 @@
         "system.reactive.nuspec"
       ]
     },
-    "System.Runtime.CompilerServices.Unsafe/4.5.3": {
-      "sha512": "3TIsJhD1EiiT0w2CcDMN/iSSwnNnsrnbzeVHSKkaEgV85txMprmuO+Yq2AdSbeVGcg28pdNDTPK87tJhX7VFHw==",
+    "System.Runtime.CompilerServices.Unsafe/4.6.0-preview.18571.3": {
+      "sha512": "RlKzUOKfzOvQsexDiEai+zgs5ZDM75D9awG+hPrAPq6iChW2opzjPruDwrhVq1n0HrCPbTfvrL6A6nL2+rDpnA==",
       "type": "package",
-      "path": "system.runtime.compilerservices.unsafe/4.5.3",
+      "path": "system.runtime.compilerservices.unsafe/4.6.0-preview.18571.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
-        "lib/net461/System.Runtime.CompilerServices.Unsafe.dll",
-        "lib/net461/System.Runtime.CompilerServices.Unsafe.xml",
         "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll",
         "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.xml",
         "lib/netstandard1.0/System.Runtime.CompilerServices.Unsafe.dll",
         "lib/netstandard1.0/System.Runtime.CompilerServices.Unsafe.xml",
         "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll",
         "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.xml",
-        "ref/net461/System.Runtime.CompilerServices.Unsafe.dll",
-        "ref/net461/System.Runtime.CompilerServices.Unsafe.xml",
+        "lib/uap10.0.16300/_._",
         "ref/netstandard1.0/System.Runtime.CompilerServices.Unsafe.dll",
         "ref/netstandard1.0/System.Runtime.CompilerServices.Unsafe.xml",
         "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll",
         "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.xml",
-        "system.runtime.compilerservices.unsafe.4.5.3.nupkg.sha512",
+        "ref/uap10.0.16300/_._",
+        "system.runtime.compilerservices.unsafe.4.6.0-preview.18571.3.nupkg.sha512",
         "system.runtime.compilerservices.unsafe.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
     },
-    "System.Threading.Tasks.Extensions/4.5.4": {
-      "sha512": "zteT+G8xuGu6mS+mzDzYXbzS7rd3K6Fjb9RiZlYlJPam2/hU7JCBZBVEcywNuR+oZ1ncTvc/cq0faRr3P01OVg==",
+    "System.Threading.Tasks.Extensions/4.6.0-preview.18571.3": {
+      "sha512": "yPsPf2tND0iqnGVBFMJhvoEpb7Tx6r/k0MRGR8IHGbEWM/Ra30e53LPX6M7bQx4O+tmJ7iC5LVwfRzY1XYfKvg==",
       "type": "package",
-      "path": "system.threading.tasks.extensions/4.5.4",
+      "path": "system.threading.tasks.extensions/4.6.0-preview.18571.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1002,8 +1014,6 @@
         "THIRD-PARTY-NOTICES.TXT",
         "lib/MonoAndroid10/_._",
         "lib/MonoTouch10/_._",
-        "lib/net461/System.Threading.Tasks.Extensions.dll",
-        "lib/net461/System.Threading.Tasks.Extensions.xml",
         "lib/netcoreapp2.1/_._",
         "lib/netstandard1.0/System.Threading.Tasks.Extensions.dll",
         "lib/netstandard1.0/System.Threading.Tasks.Extensions.xml",
@@ -1011,6 +1021,7 @@
         "lib/netstandard2.0/System.Threading.Tasks.Extensions.xml",
         "lib/portable-net45+win8+wp8+wpa81/System.Threading.Tasks.Extensions.dll",
         "lib/portable-net45+win8+wp8+wpa81/System.Threading.Tasks.Extensions.xml",
+        "lib/uap10.0.16300/_._",
         "lib/xamarinios10/_._",
         "lib/xamarinmac20/_._",
         "lib/xamarintvos10/_._",
@@ -1018,11 +1029,12 @@
         "ref/MonoAndroid10/_._",
         "ref/MonoTouch10/_._",
         "ref/netcoreapp2.1/_._",
+        "ref/uap10.0.16300/_._",
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._",
-        "system.threading.tasks.extensions.4.5.4.nupkg.sha512",
+        "system.threading.tasks.extensions.4.6.0-preview.18571.3.nupkg.sha512",
         "system.threading.tasks.extensions.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
@@ -1071,11 +1083,25 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "Victoria/4.0.7": {
+      "sha512": "FxxSg6b5UXLm1a8Tq+npG45/s0etnpjkPNdU8rC7n3UrtVRN4lak+7al7q6eGojNLX62iDKI6pb6Z88ThEM6wA==",
+      "type": "package",
+      "path": "victoria/4.0.7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netcoreapp3.0/Victoria.dll",
+        "lib/netstandard2.0/Victoria.dll",
+        "victoria.4.0.7.nupkg.sha512",
+        "victoria.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     ".NETFramework,Version=v5.0": [
-      "Discord.Net >= 3.5.0"
+      "Discord.Net >= 3.5.0",
+      "Victoria >= 4.0.7"
     ]
   },
   "packageFolders": {
@@ -1118,6 +1144,10 @@
           "Discord.Net": {
             "target": "Package",
             "version": "[3.5.0, )"
+          },
+          "Victoria": {
+            "target": "Package",
+            "version": "[4.0.7, )"
           }
         },
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.418\\RuntimeIdentifierGraph.json"

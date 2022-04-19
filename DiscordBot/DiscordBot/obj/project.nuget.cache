@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "e2L8hyO5PVfdU4lQDZ+Q86R/aT5/5XtpShauGCnpkDTjMS8QtMwQJcN/Rp29H4Sl9xVRftVx4gFCmfGOW9dHyA==",
+  "dgSpecHash": "f0rBdxNgjGDm6aBov0vluNuaufChyMKdpHuPJuVaCCvYuwKGMMAZgJY07ngKiIfOkK6anu5Xo7eJn2Waj8JxpQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Rado\\Documents\\projects\\DiscordBot\\DiscordBot\\DiscordBot\\DiscordBot\\DiscordBot.csproj",
   "expectedPackageFiles": [
@@ -21,9 +21,10 @@
     "C:\\Users\\Rado\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
     "C:\\Users\\Rado\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
     "C:\\Users\\Rado\\.nuget\\packages\\system.reactive\\5.0.0\\system.reactive.5.0.0.nupkg.sha512",
-    "C:\\Users\\Rado\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.3\\system.runtime.compilerservices.unsafe.4.5.3.nupkg.sha512",
-    "C:\\Users\\Rado\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
-    "C:\\Users\\Rado\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512"
+    "C:\\Users\\Rado\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.6.0-preview.18571.3\\system.runtime.compilerservices.unsafe.4.6.0-preview.18571.3.nupkg.sha512",
+    "C:\\Users\\Rado\\.nuget\\packages\\system.threading.tasks.extensions\\4.6.0-preview.18571.3\\system.threading.tasks.extensions.4.6.0-preview.18571.3.nupkg.sha512",
+    "C:\\Users\\Rado\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512",
+    "C:\\Users\\Rado\\.nuget\\packages\\victoria\\4.0.7\\victoria.4.0.7.nupkg.sha512"
   ],
   "logs": []
 }

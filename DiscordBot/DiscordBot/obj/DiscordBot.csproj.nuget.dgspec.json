@@ -41,6 +41,10 @@
             "Discord.Net": {
               "target": "Package",
               "version": "[3.5.0, )"
+            },
+            "Victoria": {
+              "target": "Package",
+              "version": "[4.0.7, )"
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.418\\RuntimeIdentifierGraph.json"
