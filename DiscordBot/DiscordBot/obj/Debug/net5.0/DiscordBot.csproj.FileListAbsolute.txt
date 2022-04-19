@@ -1,0 +1,16 @@
+C:\Users\Rado\Documents\projects\DiscordBot\DiscordBot\DiscordBot\DiscordBot\bin\Debug\net5.0\DiscordBot.exe
+C:\Users\Rado\Documents\projects\DiscordBot\DiscordBot\DiscordBot\DiscordBot\bin\Debug\net5.0\DiscordBot.deps.json
+C:\Users\Rado\Documents\projects\DiscordBot\DiscordBot\DiscordBot\DiscordBot\bin\Debug\net5.0\DiscordBot.runtimeconfig.json
+C:\Users\Rado\Documents\projects\DiscordBot\DiscordBot\DiscordBot\DiscordBot\bin\Debug\net5.0\DiscordBot.runtimeconfig.dev.json
+C:\Users\Rado\Documents\projects\DiscordBot\DiscordBot\DiscordBot\DiscordBot\bin\Debug\net5.0\DiscordBot.dll
+C:\Users\Rado\Documents\projects\DiscordBot\DiscordBot\DiscordBot\DiscordBot\bin\Debug\net5.0\ref\DiscordBot.dll
+C:\Users\Rado\Documents\projects\DiscordBot\DiscordBot\DiscordBot\DiscordBot\bin\Debug\net5.0\DiscordBot.pdb
+C:\Users\Rado\Documents\projects\DiscordBot\DiscordBot\DiscordBot\DiscordBot\obj\Debug\net5.0\DiscordBot.csproj.AssemblyReference.cache
+C:\Users\Rado\Documents\projects\DiscordBot\DiscordBot\DiscordBot\DiscordBot\obj\Debug\net5.0\DiscordBot.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Rado\Documents\projects\DiscordBot\DiscordBot\DiscordBot\DiscordBot\obj\Debug\net5.0\DiscordBot.AssemblyInfoInputs.cache
+C:\Users\Rado\Documents\projects\DiscordBot\DiscordBot\DiscordBot\DiscordBot\obj\Debug\net5.0\DiscordBot.AssemblyInfo.cs
+C:\Users\Rado\Documents\projects\DiscordBot\DiscordBot\DiscordBot\DiscordBot\obj\Debug\net5.0\DiscordBot.csproj.CoreCompileInputs.cache
+C:\Users\Rado\Documents\projects\DiscordBot\DiscordBot\DiscordBot\DiscordBot\obj\Debug\net5.0\DiscordBot.dll
+C:\Users\Rado\Documents\projects\DiscordBot\DiscordBot\DiscordBot\DiscordBot\obj\Debug\net5.0\ref\DiscordBot.dll
+C:\Users\Rado\Documents\projects\DiscordBot\DiscordBot\DiscordBot\DiscordBot\obj\Debug\net5.0\DiscordBot.pdb
+C:\Users\Rado\Documents\projects\DiscordBot\DiscordBot\DiscordBot\DiscordBot\obj\Debug\net5.0\DiscordBot.genruntimeconfig.cache
