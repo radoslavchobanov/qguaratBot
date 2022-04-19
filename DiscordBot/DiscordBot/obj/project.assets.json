@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    ".NETFramework,Version=v5.0": {
+    "net5.0": {
       "Discord.Net/3.5.0": {
         "type": "package",
         "dependencies": {
@@ -19,10 +19,10 @@
           "Discord.Net.Core": "3.5.0"
         },
         "compile": {
-          "lib/net461/Discord.Net.Commands.dll": {}
+          "lib/net5.0/Discord.Net.Commands.dll": {}
         },
         "runtime": {
-          "lib/net461/Discord.Net.Commands.dll": {}
+          "lib/net5.0/Discord.Net.Commands.dll": {}
         }
       },
       "Discord.Net.Core/3.5.0": {
@@ -34,10 +34,10 @@
           "System.ValueTuple": "4.5.0"
         },
         "compile": {
-          "lib/net461/Discord.Net.Core.dll": {}
+          "lib/net5.0/Discord.Net.Core.dll": {}
         },
         "runtime": {
-          "lib/net461/Discord.Net.Core.dll": {}
+          "lib/net5.0/Discord.Net.Core.dll": {}
         }
       },
       "Discord.Net.Interactions/3.5.0": {
@@ -51,10 +51,10 @@
           "System.Reactive": "5.0.0"
         },
         "compile": {
-          "lib/net461/Discord.Net.Interactions.dll": {}
+          "lib/net5.0/Discord.Net.Interactions.dll": {}
         },
         "runtime": {
-          "lib/net461/Discord.Net.Interactions.dll": {}
+          "lib/net5.0/Discord.Net.Interactions.dll": {}
         }
       },
       "Discord.Net.Rest/3.5.0": {
@@ -62,14 +62,11 @@
         "dependencies": {
           "Discord.Net.Core": "3.5.0"
         },
-        "frameworkAssemblies": [
-          "System.Net.Http"
-        ],
         "compile": {
-          "lib/net461/Discord.Net.Rest.dll": {}
+          "lib/net5.0/Discord.Net.Rest.dll": {}
         },
         "runtime": {
-          "lib/net461/Discord.Net.Rest.dll": {}
+          "lib/net5.0/Discord.Net.Rest.dll": {}
         }
       },
       "Discord.Net.Webhook/3.5.0": {
@@ -79,10 +76,10 @@
           "Discord.Net.Rest": "3.5.0"
         },
         "compile": {
-          "lib/netstandard2.0/Discord.Net.Webhook.dll": {}
+          "lib/net5.0/Discord.Net.Webhook.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.0/Discord.Net.Webhook.dll": {}
+          "lib/net5.0/Discord.Net.Webhook.dll": {}
         }
       },
       "Discord.Net.WebSocket/3.5.0": {
@@ -92,76 +89,37 @@
           "Discord.Net.Rest": "3.5.0"
         },
         "compile": {
-          "lib/net461/Discord.Net.WebSocket.dll": {}
+          "lib/net5.0/Discord.Net.WebSocket.dll": {}
         },
         "runtime": {
-          "lib/net461/Discord.Net.WebSocket.dll": {}
-        }
-      },
-      "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
-        "type": "package",
-        "dependencies": {
-          "System.Threading.Tasks.Extensions": "4.5.4"
-        },
-        "frameworkAssemblies": [
-          "mscorlib"
-        ],
-        "compile": {
-          "ref/net461/Microsoft.Bcl.AsyncInterfaces.dll": {}
-        },
-        "runtime": {
-          "lib/net461/Microsoft.Bcl.AsyncInterfaces.dll": {}
+          "lib/net5.0/Discord.Net.WebSocket.dll": {}
         }
       },
       "Microsoft.Extensions.DependencyInjection.Abstractions/5.0.0": {
         "type": "package",
-        "frameworkAssemblies": [
-          "System.Core",
-          "mscorlib"
-        ],
         "compile": {
-          "lib/net461/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
+          "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
         },
         "runtime": {
-          "lib/net461/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
+          "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
         }
       },
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
-          "lib/net45/Newtonsoft.Json.dll": {}
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         },
         "runtime": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        }
-      },
-      "System.Buffers/4.5.1": {
-        "type": "package",
-        "frameworkAssemblies": [
-          "mscorlib"
-        ],
-        "compile": {
-          "ref/net45/System.Buffers.dll": {}
-        },
-        "runtime": {
-          "lib/net461/System.Buffers.dll": {}
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
       "System.Collections.Immutable/5.0.0": {
         "type": "package",
-        "dependencies": {
-          "System.Memory": "4.5.4"
-        },
-        "frameworkAssemblies": [
-          "System",
-          "System.Core",
-          "mscorlib"
-        ],
         "compile": {
-          "lib/net461/System.Collections.Immutable.dll": {}
+          "lib/netstandard2.0/System.Collections.Immutable.dll": {}
         },
         "runtime": {
-          "lib/net461/System.Collections.Immutable.dll": {}
+          "lib/netstandard2.0/System.Collections.Immutable.dll": {}
         }
       },
       "System.Interactive.Async/5.0.0": {
@@ -170,398 +128,52 @@
           "System.Linq.Async": "5.0.0"
         },
         "compile": {
-          "lib/net461/System.Interactive.Async.dll": {}
+          "lib/netcoreapp3.1/System.Interactive.Async.dll": {}
         },
         "runtime": {
-          "lib/net461/System.Interactive.Async.dll": {}
+          "lib/netcoreapp3.1/System.Interactive.Async.dll": {}
         }
       },
       "System.Linq.Async/5.0.0": {
         "type": "package",
-        "dependencies": {
-          "Microsoft.Bcl.AsyncInterfaces": "1.1.1"
-        },
         "compile": {
-          "ref/net461/System.Linq.Async.dll": {}
+          "ref/netcoreapp3.1/System.Linq.Async.dll": {}
         },
         "runtime": {
-          "lib/net461/System.Linq.Async.dll": {}
-        }
-      },
-      "System.Memory/4.5.4": {
-        "type": "package",
-        "dependencies": {
-          "System.Buffers": "4.5.1",
-          "System.Numerics.Vectors": "4.5.0",
-          "System.Runtime.CompilerServices.Unsafe": "4.5.3"
-        },
-        "frameworkAssemblies": [
-          "System",
-          "mscorlib"
-        ],
-        "compile": {
-          "lib/net461/System.Memory.dll": {}
-        },
-        "runtime": {
-          "lib/net461/System.Memory.dll": {}
-        }
-      },
-      "System.Numerics.Vectors/4.5.0": {
-        "type": "package",
-        "frameworkAssemblies": [
-          "System.Numerics",
-          "mscorlib"
-        ],
-        "compile": {
-          "ref/net46/System.Numerics.Vectors.dll": {}
-        },
-        "runtime": {
-          "lib/net46/System.Numerics.Vectors.dll": {}
+          "lib/netcoreapp3.1/System.Linq.Async.dll": {}
         }
       },
       "System.Reactive/5.0.0": {
         "type": "package",
-        "dependencies": {
-          "System.Threading.Tasks.Extensions": "4.5.4"
-        },
-        "frameworkAssemblies": [
-          "System.Windows",
-          "System.Windows.Forms",
-          "WindowsBase"
-        ],
         "compile": {
-          "lib/net472/System.Reactive.dll": {}
+          "lib/net5.0/System.Reactive.dll": {}
         },
         "runtime": {
-          "lib/net472/System.Reactive.dll": {}
-        }
-      },
-      "System.Runtime.CompilerServices.Unsafe/4.6.0-preview.18571.3": {
-        "type": "package",
-        "compile": {
-          "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
+          "lib/net5.0/System.Reactive.dll": {}
         },
-        "runtime": {
-          "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
-        }
-      },
-      "System.Threading.Tasks.Extensions/4.6.0-preview.18571.3": {
-        "type": "package",
-        "dependencies": {
-          "System.Runtime.CompilerServices.Unsafe": "4.6.0-preview.18571.3"
-        },
-        "compile": {
-          "lib/netstandard2.0/System.Threading.Tasks.Extensions.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/System.Threading.Tasks.Extensions.dll": {}
+        "build": {
+          "buildTransitive/net5.0/_._": {}
         }
       },
       "System.ValueTuple/4.5.0": {
         "type": "package",
-        "frameworkAssemblies": [
-          "mscorlib"
-        ],
         "compile": {
-          "ref/net47/System.ValueTuple.dll": {}
+          "ref/netcoreapp2.0/_._": {}
         },
         "runtime": {
-          "lib/net47/System.ValueTuple.dll": {}
+          "lib/netcoreapp2.0/_._": {}
         }
       },
       "Victoria/4.0.7": {
         "type": "package",
         "dependencies": {
-          "Discord.Net.WebSocket": "2.0.1",
-          "System.Threading.Tasks.Extensions": "4.6.0-preview.18571.3"
+          "Discord.Net.WebSocket": "2.0.1"
         },
         "compile": {
-          "lib/netstandard2.0/Victoria.dll": {}
+          "lib/netcoreapp3.0/Victoria.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.0/Victoria.dll": {}
-        }
-      }
-    },
-    ".NETFramework,Version=v5.0/win7-x86": {
-      "Discord.Net/3.5.0": {
-        "type": "package",
-        "dependencies": {
-          "Discord.Net.Commands": "3.5.0",
-          "Discord.Net.Core": "3.5.0",
-          "Discord.Net.Interactions": "3.5.0",
-          "Discord.Net.Rest": "3.5.0",
-          "Discord.Net.WebSocket": "3.5.0",
-          "Discord.Net.Webhook": "3.5.0"
-        }
-      },
-      "Discord.Net.Commands/3.5.0": {
-        "type": "package",
-        "dependencies": {
-          "Discord.Net.Core": "3.5.0"
-        },
-        "compile": {
-          "lib/net461/Discord.Net.Commands.dll": {}
-        },
-        "runtime": {
-          "lib/net461/Discord.Net.Commands.dll": {}
-        }
-      },
-      "Discord.Net.Core/3.5.0": {
-        "type": "package",
-        "dependencies": {
-          "Newtonsoft.Json": "13.0.1",
-          "System.Collections.Immutable": "5.0.0",
-          "System.Interactive.Async": "5.0.0",
-          "System.ValueTuple": "4.5.0"
-        },
-        "compile": {
-          "lib/net461/Discord.Net.Core.dll": {}
-        },
-        "runtime": {
-          "lib/net461/Discord.Net.Core.dll": {}
-        }
-      },
-      "Discord.Net.Interactions/3.5.0": {
-        "type": "package",
-        "dependencies": {
-          "Discord.Net.Core": "3.5.0",
-          "Discord.Net.Rest": "3.5.0",
-          "Discord.Net.WebSocket": "3.5.0",
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "5.0.0",
-          "System.Collections.Immutable": "5.0.0",
-          "System.Reactive": "5.0.0"
-        },
-        "compile": {
-          "lib/net461/Discord.Net.Interactions.dll": {}
-        },
-        "runtime": {
-          "lib/net461/Discord.Net.Interactions.dll": {}
-        }
-      },
-      "Discord.Net.Rest/3.5.0": {
-        "type": "package",
-        "dependencies": {
-          "Discord.Net.Core": "3.5.0"
-        },
-        "frameworkAssemblies": [
-          "System.Net.Http"
-        ],
-        "compile": {
-          "lib/net461/Discord.Net.Rest.dll": {}
-        },
-        "runtime": {
-          "lib/net461/Discord.Net.Rest.dll": {}
-        }
-      },
-      "Discord.Net.Webhook/3.5.0": {
-        "type": "package",
-        "dependencies": {
-          "Discord.Net.Core": "3.5.0",
-          "Discord.Net.Rest": "3.5.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/Discord.Net.Webhook.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Discord.Net.Webhook.dll": {}
-        }
-      },
-      "Discord.Net.WebSocket/3.5.0": {
-        "type": "package",
-        "dependencies": {
-          "Discord.Net.Core": "3.5.0",
-          "Discord.Net.Rest": "3.5.0"
-        },
-        "compile": {
-          "lib/net461/Discord.Net.WebSocket.dll": {}
-        },
-        "runtime": {
-          "lib/net461/Discord.Net.WebSocket.dll": {}
-        }
-      },
-      "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
-        "type": "package",
-        "dependencies": {
-          "System.Threading.Tasks.Extensions": "4.5.4"
-        },
-        "frameworkAssemblies": [
-          "mscorlib"
-        ],
-        "compile": {
-          "ref/net461/Microsoft.Bcl.AsyncInterfaces.dll": {}
-        },
-        "runtime": {
-          "lib/net461/Microsoft.Bcl.AsyncInterfaces.dll": {}
-        }
-      },
-      "Microsoft.Extensions.DependencyInjection.Abstractions/5.0.0": {
-        "type": "package",
-        "frameworkAssemblies": [
-          "System.Core",
-          "mscorlib"
-        ],
-        "compile": {
-          "lib/net461/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
-        },
-        "runtime": {
-          "lib/net461/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
-        }
-      },
-      "Newtonsoft.Json/13.0.1": {
-        "type": "package",
-        "compile": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        }
-      },
-      "System.Buffers/4.5.1": {
-        "type": "package",
-        "frameworkAssemblies": [
-          "mscorlib"
-        ],
-        "compile": {
-          "ref/net45/System.Buffers.dll": {}
-        },
-        "runtime": {
-          "lib/net461/System.Buffers.dll": {}
-        }
-      },
-      "System.Collections.Immutable/5.0.0": {
-        "type": "package",
-        "dependencies": {
-          "System.Memory": "4.5.4"
-        },
-        "frameworkAssemblies": [
-          "System",
-          "System.Core",
-          "mscorlib"
-        ],
-        "compile": {
-          "lib/net461/System.Collections.Immutable.dll": {}
-        },
-        "runtime": {
-          "lib/net461/System.Collections.Immutable.dll": {}
-        }
-      },
-      "System.Interactive.Async/5.0.0": {
-        "type": "package",
-        "dependencies": {
-          "System.Linq.Async": "5.0.0"
-        },
-        "compile": {
-          "lib/net461/System.Interactive.Async.dll": {}
-        },
-        "runtime": {
-          "lib/net461/System.Interactive.Async.dll": {}
-        }
-      },
-      "System.Linq.Async/5.0.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Bcl.AsyncInterfaces": "1.1.1"
-        },
-        "compile": {
-          "ref/net461/System.Linq.Async.dll": {}
-        },
-        "runtime": {
-          "lib/net461/System.Linq.Async.dll": {}
-        }
-      },
-      "System.Memory/4.5.4": {
-        "type": "package",
-        "dependencies": {
-          "System.Buffers": "4.5.1",
-          "System.Numerics.Vectors": "4.5.0",
-          "System.Runtime.CompilerServices.Unsafe": "4.5.3"
-        },
-        "frameworkAssemblies": [
-          "System",
-          "mscorlib"
-        ],
-        "compile": {
-          "lib/net461/System.Memory.dll": {}
-        },
-        "runtime": {
-          "lib/net461/System.Memory.dll": {}
-        }
-      },
-      "System.Numerics.Vectors/4.5.0": {
-        "type": "package",
-        "frameworkAssemblies": [
-          "System.Numerics",
-          "mscorlib"
-        ],
-        "compile": {
-          "ref/net46/System.Numerics.Vectors.dll": {}
-        },
-        "runtime": {
-          "lib/net46/System.Numerics.Vectors.dll": {}
-        }
-      },
-      "System.Reactive/5.0.0": {
-        "type": "package",
-        "dependencies": {
-          "System.Threading.Tasks.Extensions": "4.5.4"
-        },
-        "frameworkAssemblies": [
-          "System.Windows",
-          "System.Windows.Forms",
-          "WindowsBase"
-        ],
-        "compile": {
-          "lib/net472/System.Reactive.dll": {}
-        },
-        "runtime": {
-          "lib/net472/System.Reactive.dll": {}
-        }
-      },
-      "System.Runtime.CompilerServices.Unsafe/4.6.0-preview.18571.3": {
-        "type": "package",
-        "compile": {
-          "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
-        }
-      },
-      "System.Threading.Tasks.Extensions/4.6.0-preview.18571.3": {
-        "type": "package",
-        "dependencies": {
-          "System.Runtime.CompilerServices.Unsafe": "4.6.0-preview.18571.3"
-        },
-        "compile": {
-          "lib/netstandard2.0/System.Threading.Tasks.Extensions.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/System.Threading.Tasks.Extensions.dll": {}
-        }
-      },
-      "System.ValueTuple/4.5.0": {
-        "type": "package",
-        "frameworkAssemblies": [
-          "mscorlib"
-        ],
-        "compile": {
-          "ref/net47/System.ValueTuple.dll": {}
-        },
-        "runtime": {
-          "lib/net47/System.ValueTuple.dll": {}
-        }
-      },
-      "Victoria/4.0.7": {
-        "type": "package",
-        "dependencies": {
-          "Discord.Net.WebSocket": "2.0.1",
-          "System.Threading.Tasks.Extensions": "4.6.0-preview.18571.3"
-        },
-        "compile": {
-          "lib/netstandard2.0/Victoria.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Victoria.dll": {}
+          "lib/netcoreapp3.0/Victoria.dll": {}
         }
       }
     }
@@ -702,31 +314,6 @@
         "lib/netstandard2.1/Discord.Net.WebSocket.xml"
       ]
     },
-    "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
-      "sha512": "yuvf07qFWFqtK3P/MRkEKLhn5r2UbSpVueRziSqj0yJQIKFwG1pq9mOayK3zE5qZCTs0CbrwL9M6R8VwqyGy2w==",
-      "type": "package",
-      "path": "microsoft.bcl.asyncinterfaces/1.1.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/net461/Microsoft.Bcl.AsyncInterfaces.dll",
-        "lib/net461/Microsoft.Bcl.AsyncInterfaces.xml",
-        "lib/netstandard2.0/Microsoft.Bcl.AsyncInterfaces.dll",
-        "lib/netstandard2.0/Microsoft.Bcl.AsyncInterfaces.xml",
-        "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll",
-        "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.xml",
-        "microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
-        "microsoft.bcl.asyncinterfaces.nuspec",
-        "ref/net461/Microsoft.Bcl.AsyncInterfaces.dll",
-        "ref/netstandard2.0/Microsoft.Bcl.AsyncInterfaces.dll",
-        "ref/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll",
-        "useSharedDesignerContext.txt",
-        "version.txt"
-      ]
-    },
     "Microsoft.Extensions.DependencyInjection.Abstractions/5.0.0": {
       "sha512": "ORj7Zh81gC69TyvmcUm9tSzytcy8AVousi+IVRAI8nLieQjOFryRusSFh7+aLk16FN9pQNqJAiMd7BTKINK0kA==",
       "type": "package",
@@ -772,37 +359,6 @@
         "newtonsoft.json.13.0.1.nupkg.sha512",
         "newtonsoft.json.nuspec",
         "packageIcon.png"
-      ]
-    },
-    "System.Buffers/4.5.1": {
-      "sha512": "Rw7ijyl1qqRS0YQD/WycNst8hUUMgrMH4FCn1nNm27M4VxchZ1js3fVjQaANHO5f3sN4isvP4a+Met9Y4YomAg==",
-      "type": "package",
-      "path": "system.buffers/4.5.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/net461/System.Buffers.dll",
-        "lib/net461/System.Buffers.xml",
-        "lib/netcoreapp2.0/_._",
-        "lib/netstandard1.1/System.Buffers.dll",
-        "lib/netstandard1.1/System.Buffers.xml",
-        "lib/netstandard2.0/System.Buffers.dll",
-        "lib/netstandard2.0/System.Buffers.xml",
-        "lib/uap10.0.16299/_._",
-        "ref/net45/System.Buffers.dll",
-        "ref/net45/System.Buffers.xml",
-        "ref/netcoreapp2.0/_._",
-        "ref/netstandard1.1/System.Buffers.dll",
-        "ref/netstandard1.1/System.Buffers.xml",
-        "ref/netstandard2.0/System.Buffers.dll",
-        "ref/netstandard2.0/System.Buffers.xml",
-        "ref/uap10.0.16299/_._",
-        "system.buffers.4.5.1.nupkg.sha512",
-        "system.buffers.nuspec",
-        "useSharedDesignerContext.txt",
-        "version.txt"
       ]
     },
     "System.Collections.Immutable/5.0.0": {
@@ -877,76 +433,6 @@
         "system.linq.async.nuspec"
       ]
     },
-    "System.Memory/4.5.4": {
-      "sha512": "1MbJTHS1lZ4bS4FmsJjnuGJOu88ZzTT2rLvrhW7Ygic+pC0NWA+3hgAen0HRdsocuQXCkUTdFn9yHJJhsijDXw==",
-      "type": "package",
-      "path": "system.memory/4.5.4",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/net461/System.Memory.dll",
-        "lib/net461/System.Memory.xml",
-        "lib/netcoreapp2.1/_._",
-        "lib/netstandard1.1/System.Memory.dll",
-        "lib/netstandard1.1/System.Memory.xml",
-        "lib/netstandard2.0/System.Memory.dll",
-        "lib/netstandard2.0/System.Memory.xml",
-        "ref/netcoreapp2.1/_._",
-        "system.memory.4.5.4.nupkg.sha512",
-        "system.memory.nuspec",
-        "useSharedDesignerContext.txt",
-        "version.txt"
-      ]
-    },
-    "System.Numerics.Vectors/4.5.0": {
-      "sha512": "QQTlPTl06J/iiDbJCiepZ4H//BVraReU4O4EoRw1U02H5TLUIT7xn3GnDp9AXPSlJUDyFs4uWjWafNX6WrAojQ==",
-      "type": "package",
-      "path": "system.numerics.vectors/4.5.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/MonoAndroid10/_._",
-        "lib/MonoTouch10/_._",
-        "lib/net46/System.Numerics.Vectors.dll",
-        "lib/net46/System.Numerics.Vectors.xml",
-        "lib/netcoreapp2.0/_._",
-        "lib/netstandard1.0/System.Numerics.Vectors.dll",
-        "lib/netstandard1.0/System.Numerics.Vectors.xml",
-        "lib/netstandard2.0/System.Numerics.Vectors.dll",
-        "lib/netstandard2.0/System.Numerics.Vectors.xml",
-        "lib/portable-net45+win8+wp8+wpa81/System.Numerics.Vectors.dll",
-        "lib/portable-net45+win8+wp8+wpa81/System.Numerics.Vectors.xml",
-        "lib/uap10.0.16299/_._",
-        "lib/xamarinios10/_._",
-        "lib/xamarinmac20/_._",
-        "lib/xamarintvos10/_._",
-        "lib/xamarinwatchos10/_._",
-        "ref/MonoAndroid10/_._",
-        "ref/MonoTouch10/_._",
-        "ref/net45/System.Numerics.Vectors.dll",
-        "ref/net45/System.Numerics.Vectors.xml",
-        "ref/net46/System.Numerics.Vectors.dll",
-        "ref/net46/System.Numerics.Vectors.xml",
-        "ref/netcoreapp2.0/_._",
-        "ref/netstandard1.0/System.Numerics.Vectors.dll",
-        "ref/netstandard1.0/System.Numerics.Vectors.xml",
-        "ref/netstandard2.0/System.Numerics.Vectors.dll",
-        "ref/netstandard2.0/System.Numerics.Vectors.xml",
-        "ref/uap10.0.16299/_._",
-        "ref/xamarinios10/_._",
-        "ref/xamarinmac20/_._",
-        "ref/xamarintvos10/_._",
-        "ref/xamarinwatchos10/_._",
-        "system.numerics.vectors.4.5.0.nupkg.sha512",
-        "system.numerics.vectors.nuspec",
-        "useSharedDesignerContext.txt",
-        "version.txt"
-      ]
-    },
     "System.Reactive/5.0.0": {
       "sha512": "erBZjkQHWL9jpasCE/0qKAryzVBJFxGHVBAvgRN1bzM0q2s1S4oYREEEL0Vb+1kA/6BKb5FjUZMp5VXmy+gzkQ==",
       "type": "package",
@@ -974,70 +460,6 @@
         "lib/uap10.0.16299/System.Reactive.xml",
         "system.reactive.5.0.0.nupkg.sha512",
         "system.reactive.nuspec"
-      ]
-    },
-    "System.Runtime.CompilerServices.Unsafe/4.6.0-preview.18571.3": {
-      "sha512": "RlKzUOKfzOvQsexDiEai+zgs5ZDM75D9awG+hPrAPq6iChW2opzjPruDwrhVq1n0HrCPbTfvrL6A6nL2+rDpnA==",
-      "type": "package",
-      "path": "system.runtime.compilerservices.unsafe/4.6.0-preview.18571.3",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll",
-        "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.xml",
-        "lib/netstandard1.0/System.Runtime.CompilerServices.Unsafe.dll",
-        "lib/netstandard1.0/System.Runtime.CompilerServices.Unsafe.xml",
-        "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll",
-        "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.xml",
-        "lib/uap10.0.16300/_._",
-        "ref/netstandard1.0/System.Runtime.CompilerServices.Unsafe.dll",
-        "ref/netstandard1.0/System.Runtime.CompilerServices.Unsafe.xml",
-        "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll",
-        "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.xml",
-        "ref/uap10.0.16300/_._",
-        "system.runtime.compilerservices.unsafe.4.6.0-preview.18571.3.nupkg.sha512",
-        "system.runtime.compilerservices.unsafe.nuspec",
-        "useSharedDesignerContext.txt",
-        "version.txt"
-      ]
-    },
-    "System.Threading.Tasks.Extensions/4.6.0-preview.18571.3": {
-      "sha512": "yPsPf2tND0iqnGVBFMJhvoEpb7Tx6r/k0MRGR8IHGbEWM/Ra30e53LPX6M7bQx4O+tmJ7iC5LVwfRzY1XYfKvg==",
-      "type": "package",
-      "path": "system.threading.tasks.extensions/4.6.0-preview.18571.3",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/MonoAndroid10/_._",
-        "lib/MonoTouch10/_._",
-        "lib/netcoreapp2.1/_._",
-        "lib/netstandard1.0/System.Threading.Tasks.Extensions.dll",
-        "lib/netstandard1.0/System.Threading.Tasks.Extensions.xml",
-        "lib/netstandard2.0/System.Threading.Tasks.Extensions.dll",
-        "lib/netstandard2.0/System.Threading.Tasks.Extensions.xml",
-        "lib/portable-net45+win8+wp8+wpa81/System.Threading.Tasks.Extensions.dll",
-        "lib/portable-net45+win8+wp8+wpa81/System.Threading.Tasks.Extensions.xml",
-        "lib/uap10.0.16300/_._",
-        "lib/xamarinios10/_._",
-        "lib/xamarinmac20/_._",
-        "lib/xamarintvos10/_._",
-        "lib/xamarinwatchos10/_._",
-        "ref/MonoAndroid10/_._",
-        "ref/MonoTouch10/_._",
-        "ref/netcoreapp2.1/_._",
-        "ref/uap10.0.16300/_._",
-        "ref/xamarinios10/_._",
-        "ref/xamarinmac20/_._",
-        "ref/xamarintvos10/_._",
-        "ref/xamarinwatchos10/_._",
-        "system.threading.tasks.extensions.4.6.0-preview.18571.3.nupkg.sha512",
-        "system.threading.tasks.extensions.nuspec",
-        "useSharedDesignerContext.txt",
-        "version.txt"
       ]
     },
     "System.ValueTuple/4.5.0": {
@@ -1099,7 +521,7 @@
     }
   },
   "projectFileDependencyGroups": {
-    ".NETFramework,Version=v5.0": [
+    "net5.0": [
       "Discord.Net >= 3.5.0",
       "Victoria >= 4.0.7"
     ]
@@ -1128,7 +550,8 @@
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net50": {
+        "net5.0": {
+          "targetAlias": "net5.0",
           "projectReferences": {}
         }
       },
@@ -1139,7 +562,8 @@
       }
     },
     "frameworks": {
-      "net50": {
+      "net5.0": {
+        "targetAlias": "net5.0",
         "dependencies": {
           "Discord.Net": {
             "target": "Package",
@@ -1150,12 +574,22 @@
             "version": "[4.0.7, )"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.418\\RuntimeIdentifierGraph.json"
-      }
-    },
-    "runtimes": {
-      "win7-x86": {
-        "#import": []
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.303\\RuntimeIdentifierGraph.json"
       }
     }
   }

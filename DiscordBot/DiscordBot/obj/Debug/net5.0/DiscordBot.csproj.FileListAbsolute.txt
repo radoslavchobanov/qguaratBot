@@ -14,3 +14,16 @@ C:\Users\Rado\Documents\projects\DiscordBot\DiscordBot\DiscordBot\DiscordBot\obj
 C:\Users\Rado\Documents\projects\DiscordBot\DiscordBot\DiscordBot\DiscordBot\obj\Debug\net5.0\ref\DiscordBot.dll
 C:\Users\Rado\Documents\projects\DiscordBot\DiscordBot\DiscordBot\DiscordBot\obj\Debug\net5.0\DiscordBot.pdb
 C:\Users\Rado\Documents\projects\DiscordBot\DiscordBot\DiscordBot\DiscordBot\obj\Debug\net5.0\DiscordBot.genruntimeconfig.cache
+C:\Users\Rado\Documents\projects\DiscordBot\DiscordBot\DiscordBot\DiscordBot\bin\Debug\net5.0\Discord.Net.Commands.dll
+C:\Users\Rado\Documents\projects\DiscordBot\DiscordBot\DiscordBot\DiscordBot\bin\Debug\net5.0\Discord.Net.Core.dll
+C:\Users\Rado\Documents\projects\DiscordBot\DiscordBot\DiscordBot\DiscordBot\bin\Debug\net5.0\Discord.Net.Interactions.dll
+C:\Users\Rado\Documents\projects\DiscordBot\DiscordBot\DiscordBot\DiscordBot\bin\Debug\net5.0\Discord.Net.Rest.dll
+C:\Users\Rado\Documents\projects\DiscordBot\DiscordBot\DiscordBot\DiscordBot\bin\Debug\net5.0\Discord.Net.Webhook.dll
+C:\Users\Rado\Documents\projects\DiscordBot\DiscordBot\DiscordBot\DiscordBot\bin\Debug\net5.0\Discord.Net.WebSocket.dll
+C:\Users\Rado\Documents\projects\DiscordBot\DiscordBot\DiscordBot\DiscordBot\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Rado\Documents\projects\DiscordBot\DiscordBot\DiscordBot\DiscordBot\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Users\Rado\Documents\projects\DiscordBot\DiscordBot\DiscordBot\DiscordBot\bin\Debug\net5.0\System.Interactive.Async.dll
+C:\Users\Rado\Documents\projects\DiscordBot\DiscordBot\DiscordBot\DiscordBot\bin\Debug\net5.0\System.Linq.Async.dll
+C:\Users\Rado\Documents\projects\DiscordBot\DiscordBot\DiscordBot\DiscordBot\bin\Debug\net5.0\System.Reactive.dll
+C:\Users\Rado\Documents\projects\DiscordBot\DiscordBot\DiscordBot\DiscordBot\bin\Debug\net5.0\Victoria.dll
+C:\Users\Rado\Documents\projects\DiscordBot\DiscordBot\DiscordBot\DiscordBot\obj\Debug\net5.0\DiscordBot.csproj.CopyComplete
