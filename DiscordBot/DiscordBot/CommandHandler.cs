@@ -40,7 +40,7 @@ namespace DiscordBot
             if (message.Author.IsBot)
                 return;
 
-            if (!userMessage.HasMentionPrefix(client.CurrentUser, ref argPos))
+            if (!userMessage.HasStringPrefix("qguarat ", ref argPos))
                 return;
 
             var context = new SocketCommandContext(client, userMessage);

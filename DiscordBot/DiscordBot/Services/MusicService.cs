@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Threading.Tasks;
 using Discord;
 using Discord.WebSocket;
@@ -11,6 +12,7 @@ namespace DiscordBot
         private LavaRestClient lavaRestClient;
         private LavaSocketClient lavaSocketClient;
         private readonly DiscordSocketClient client;
+        private LavaPlayer player;
 
         public MusicService(LavaRestClient lavaRestClient, LavaSocketClient lavaSocketClient, DiscordSocketClient client)
         {
@@ -30,6 +32,35 @@ namespace DiscordBot
         public async Task ConnectAsync(SocketVoiceChannel channel, ITextChannel textChannel)
         {
             await lavaSocketClient.ConnectAsync(channel, textChannel);
+        }
+
+        public async Task DisconnectAsync(SocketVoiceChannel channel)
+        {
+            await lavaSocketClient.DisconnectAsync(channel);
+        }
+
+        public async Task<string> PlayAsync(string query, ulong guildId)
+        {
+            player = lavaSocketClient.GetPlayer(guildId);
+
+            var result = await lavaRestClient.SearchYouTubeAsync(query);
+            System.Console.WriteLine("here");
+
+            if (result.LoadType == LoadType.NoMatches || result.LoadType == LoadType.LoadFailed)
+                return "No matches found !!!";
+            
+            var track = result.Tracks.FirstOrDefault();
+
+            if (player.IsPlaying)
+            {
+                player.Queue.Enqueue(track);
+                return $"{track.Title} has been added to the playlist";
+            }
+            else 
+            {
+                await player.PlayAsync(track);
+                return $"Now playing: {track.Title}";
+            }
         }
 
         private async Task ClientReadyAsync()

@@ -10,6 +10,10 @@ namespace DiscordBot
 {
     public class BotClient
     {
+        public static BotClient singleton;
+
+        public SocketVoiceChannel CurrentVoiceChannel {get; private set;}
+
         private DiscordSocketClient client;
         private CommandService commandService;
         private IServiceProvider services;
@@ -32,8 +36,18 @@ namespace DiscordBot
             });
         }
 
+        public void SetCurrentVoiceChannel(SocketVoiceChannel channel) => CurrentVoiceChannel = channel;
+
+        private void SetSingleton()
+        {
+            if (singleton != null) return;
+            singleton = this;
+        }
+
         public async Task Initialize()
         {
+            SetSingleton();
+
             await this.client.LoginAsync(TokenType.Bot, "OTY2MjQzMTkyNjc4ODA1NTY1.Yl-6GQ.BI92ih4aYUdaA95AC5-5otkE2bg");
             await this.client.StartAsync();
             this.client.Log += LogAsync;
