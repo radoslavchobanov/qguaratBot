@@ -18,6 +18,7 @@ namespace DiscordBot
         public async Task Join()
         {
             var user = Context.User as SocketGuildUser;
+
             if (user.VoiceChannel is null)
             {
                 await ReplyAsync("You need to connect to a voice channel!!!");

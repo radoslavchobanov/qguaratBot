@@ -37,9 +37,12 @@ namespace DiscordBot
             await this.client.LoginAsync(TokenType.Bot, "OTY2MjQzMTkyNjc4ODA1NTY1.Yl-6GQ.BI92ih4aYUdaA95AC5-5otkE2bg");
             await this.client.StartAsync();
             this.client.Log += LogAsync;
+            services = SetupServices();
 
             var commandHandler = new CommandHandler(client, commandService, services);
             await commandHandler.InitializeAsync();
+
+            await services.GetRequiredService<MusicService>().InitalizeAsync();
             
             await Task.Delay(-1);
         }

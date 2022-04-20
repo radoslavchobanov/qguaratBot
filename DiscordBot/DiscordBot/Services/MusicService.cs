@@ -34,7 +34,10 @@ namespace DiscordBot
 
         private async Task ClientReadyAsync()
         {
-            await lavaSocketClient.StartAsync(client);
+            await lavaSocketClient.StartAsync(client, new Configuration
+            {
+                LogSeverity = LogSeverity.Info
+            });
         }
 
         private Task LogAsync(LogMessage arg)
