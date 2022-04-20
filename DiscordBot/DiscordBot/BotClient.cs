@@ -6,7 +6,6 @@ using System;
 using Microsoft.Extensions.DependencyInjection;
 using Victoria;
 
-
 namespace DiscordBot
 {
     public class BotClient
@@ -39,6 +38,9 @@ namespace DiscordBot
             await this.client.StartAsync();
             this.client.Log += LogAsync;
 
+            var commandHandler = new CommandHandler(client, commandService, services);
+            await commandHandler.InitializeAsync();
+            
             await Task.Delay(-1);
         }
 
@@ -53,8 +55,9 @@ namespace DiscordBot
                 .AddSingleton(client)
                 .AddSingleton(commandService)
                 .AddSingleton<LavaRestClient>()
-                .AddSingleton<LavaSocketClient>();
-                
+                .AddSingleton<LavaSocketClient>()
+                .AddSingleton<MusicService>()
+                .BuildServiceProvider();
         }
     }
 }

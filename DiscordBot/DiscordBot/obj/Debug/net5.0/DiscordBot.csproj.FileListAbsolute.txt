@@ -27,3 +27,5 @@ C:\Users\Rado\Documents\projects\DiscordBot\DiscordBot\DiscordBot\DiscordBot\bin
 C:\Users\Rado\Documents\projects\DiscordBot\DiscordBot\DiscordBot\DiscordBot\bin\Debug\net5.0\Victoria.dll
 C:\Users\Rado\Documents\projects\DiscordBot\DiscordBot\DiscordBot\DiscordBot\obj\Debug\net5.0\DiscordBot.csproj.CopyComplete
 C:\Users\Rado\Documents\projects\DiscordBot\DiscordBot\DiscordBot\DiscordBot\obj\Debug\net5.0\refint\DiscordBot.dll
+C:\Users\Rado\Documents\projects\DiscordBot\DiscordBot\DiscordBot\DiscordBot\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Rado\Documents\projects\DiscordBot\DiscordBot\DiscordBot\DiscordBot\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll
