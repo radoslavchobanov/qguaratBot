@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "MwYDIYI1NjY7PWVIctjvbLf96dg9FBOaOk2sn+qXZ2VGa5t69b+Avj4upQ4l5vNr568Tilz9EESohcahMV5NRQ==",
+  "dgSpecHash": "qbWO+4r2rGJ/TvjbzkqHsV/O+rjI3cQce4qy9BbDEdquI4Amw+44I6c5+1fJglJ3JCXKPQmYbmJLhsMPmSlIkw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Rado\\Documents\\projects\\DiscordBot\\DiscordBot\\DiscordBot\\DiscordBot\\DiscordBot.csproj",
   "expectedPackageFiles": [
@@ -19,8 +19,10 @@
     "C:\\Users\\Rado\\.nuget\\packages\\system.linq.async\\5.0.0\\system.linq.async.5.0.0.nupkg.sha512",
     "C:\\Users\\Rado\\.nuget\\packages\\system.reactive\\5.0.0\\system.reactive.5.0.0.nupkg.sha512",
     "C:\\Users\\Rado\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\Rado\\.nuget\\packages\\system.text.encodings.web\\6.0.0\\system.text.encodings.web.6.0.0.nupkg.sha512",
+    "C:\\Users\\Rado\\.nuget\\packages\\system.text.json\\6.0.2\\system.text.json.6.0.2.nupkg.sha512",
     "C:\\Users\\Rado\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512",
-    "C:\\Users\\Rado\\.nuget\\packages\\victoria\\4.0.7\\victoria.4.0.7.nupkg.sha512",
+    "C:\\Users\\Rado\\.nuget\\packages\\victoria\\5.2.8\\victoria.5.2.8.nupkg.sha512",
     "C:\\Users\\Rado\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.16\\microsoft.netcore.app.host.win-x64.5.0.16.nupkg.sha512"
   ],
   "logs": []

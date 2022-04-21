@@ -1,9 +1,10 @@
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Discord;
 using Discord.WebSocket;
-using Victoria;
 using Victoria.Entities;
+using Victoria;
 
 namespace DiscordBot
 {
@@ -43,7 +44,7 @@ namespace DiscordBot
         {
             player = lavaSocketClient.GetPlayer(guildId);
 
-            var result = await lavaRestClient.SearchYouTubeAsync(query);
+            var result = Uri.IsWellFormedUriString(query, UriKind.Absolute) ? await 
             System.Console.WriteLine("here");
 
             if (result.LoadType == LoadType.NoMatches || result.LoadType == LoadType.LoadFailed)

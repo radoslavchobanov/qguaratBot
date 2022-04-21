@@ -50,7 +50,7 @@
             },
             "Victoria": {
               "target": "Package",
-              "version": "[4.0.7, )"
+              "version": "[5.2.8, )"
             }
           },
           "imports": [
