@@ -6,16 +6,20 @@ using DSharpPlus.Net;
 
 namespace qguaratBot
 {
-    public class Bot
+    public class SocketConnection
     {
-        public static DiscordClient discordClient;
-        private static DiscordConfiguration discordConfiguration;
-        private static CommandsNextExtension commandsNextExtension;
+        // this is set when command JOIN is executed / when bot has joined a voice channel
+        // and is used for Responding messages on the discord chat
+        public CommandContext commandContext;
 
-        public static LavalinkNodeConnection lavalinkNode;
-        private static LavalinkConfiguration lavalinkConfiguration;
+        public DiscordClient discordClient;
+        private DiscordConfiguration discordConfiguration;
+        private CommandsNextExtension commandsNextExtension;
 
-        public Bot()
+        public LavalinkNodeConnection lavalinkNode;
+        private LavalinkConfiguration lavalinkConfiguration;
+
+        public SocketConnection()
         {
             var services = new ServiceCollection()
                 .AddSingleton<Commands>()
@@ -32,20 +36,21 @@ namespace qguaratBot
             lavalinkConfiguration = SetLavalinkConf(SetConnectionEndpointConf());
         }
         
+        
         public async Task MainSync()
         {
-            await EventManager.HandleEvents();
-
             commandsNextExtension.RegisterCommands<Commands>();
 
             await discordClient.ConnectAsync();
 
             var lavalink = discordClient.UseLavalink();
             lavalinkNode = await lavalink.ConnectAsync(lavalinkConfiguration);
+            
+            await EventManager.HandleEvents();
 
             await Task.Delay(-1);
         }
-
+        
         private DiscordConfiguration SetDiscordConf()
         {
             return new DiscordConfiguration()
@@ -55,6 +60,7 @@ namespace qguaratBot
                 MinimumLogLevel = Microsoft.Extensions.Logging.LogLevel.Information,
             };
         }
+        
         private CommandsNextConfiguration SetCommandsNextConf(IServiceProvider services)
         {
             return new CommandsNextConfiguration()

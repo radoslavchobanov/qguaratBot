@@ -1,5 +1,4 @@
 using DSharpPlus;
-using DSharpPlus.Entities;
 using DSharpPlus.CommandsNext;
 using DSharpPlus.CommandsNext.Attributes;
 using DSharpPlus.Lavalink;
@@ -17,42 +16,69 @@ namespace qguaratBot
         [Command("join")]
         public async Task JoinCommand(CommandContext ctx)
         {
-            var node = Bot.lavalinkNode;
+            if (ctx.Member.VoiceState == null || ctx.Member.VoiceState.Channel == null)
+            {
+                await ctx.RespondAsync("You are not in a voice channel.");
+                return;
+            }
+
+            Bot.socketConnection.commandContext = ctx;
+
+            var node = Bot.socketConnection.lavalinkNode;
             var channel = ctx.Member.VoiceState.Channel;
+            var conn = node.GetGuildConnection(channel.Guild);
+            
+            if (conn != null)
+            {
+                System.Console.WriteLine($"[{DateTime.Now}]\tBot is already in channel! {channel.Name}");
+                await ctx.RespondAsync($"Bot is already in channel! {channel.Name}");
+                return;
+            }
 
             if (channel.Type != ChannelType.Voice)
             {
+                System.Console.WriteLine($"[{DateTime.Now}]\tNot a valid voice channel {channel.Type}");
                 await ctx.RespondAsync("Not a valid voice channel.");
                 return;
             }
 
             await node.ConnectAsync(channel);
+            System.Console.WriteLine($"[{DateTime.Now}]\tBot Joined {channel.Name}");
             await ctx.RespondAsync($"Joined {channel.Name}!");
         }
         
         [Command("leave")]
         public async Task LeaveCommand(CommandContext ctx)
         {
-            var node = Bot.lavalinkNode;
-            var channel = ctx.Member.VoiceState.Channel;
+            if (ctx.Member.VoiceState == null || ctx.Member.VoiceState.Channel == null)
+            {
+                await ctx.RespondAsync("You are not in a voice channel.");
+                return;
+            }
 
+            Bot.socketConnection.commandContext = null;
+
+            var node = Bot.socketConnection.lavalinkNode;
+            var channel = ctx.Member.VoiceState.Channel;
             var conn = node.GetGuildConnection(channel.Guild);
 
             if (conn == null)
             {
-                await ctx.RespondAsync("Lavalink is not connected.");
+                System.Console.WriteLine($"[{DateTime.Now}]\tBot is not in a voice channel!");
+                await ctx.RespondAsync("Bot is not in a voice channel!");
                 return;
             }
 
+            // when leaving, it should trigger the OnTrackFinished event
+
             await conn.DisconnectAsync();
+            System.Console.WriteLine($"[{DateTime.Now}]\tBot left {channel.Name}");
             await ctx.RespondAsync($"Left {channel.Name}!");
         }
 
         [Command("play")]
         public async Task Play(CommandContext ctx, [RemainingText] string search)
         {
-            await JoinCommand(ctx);
-
             if (ctx.Member.VoiceState == null || ctx.Member.VoiceState.Channel == null)
             {
                 await ctx.RespondAsync("You are not in a voice channel.");
@@ -65,8 +91,7 @@ namespace qguaratBot
 
             if (conn == null)
             {
-                await ctx.RespondAsync("Lavalink is not connected.");
-                return;
+                await JoinCommand(ctx);
             }
 
             var loadResult = await node.Rest.GetTracksAsync(search);
@@ -79,10 +104,7 @@ namespace qguaratBot
             }
 
             var track = loadResult.Tracks.First();
-
-            await conn.PlayAsync(track);
-
-            await ctx.RespondAsync($"Now playing {track.Title}!");
+            await Bot.AddTrack(track);
         }
     }
 }

@@ -4686,11 +4686,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Rado\\Documents\\projects\\DiscordBot\\qguaratBot\\qguaratBot.csproj",
+      "projectUniqueName": "C:\\Users\\Rado\\Documents\\projects\\DiscordBot\\qguaratBot\\qguaratBot\\qguaratBot.csproj",
       "projectName": "qguaratBot",
-      "projectPath": "C:\\Users\\Rado\\Documents\\projects\\DiscordBot\\qguaratBot\\qguaratBot.csproj",
+      "projectPath": "C:\\Users\\Rado\\Documents\\projects\\DiscordBot\\qguaratBot\\qguaratBot\\qguaratBot.csproj",
       "packagesPath": "C:\\Users\\Rado\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Rado\\Documents\\projects\\DiscordBot\\qguaratBot\\obj\\",
+      "outputPath": "C:\\Users\\Rado\\Documents\\projects\\DiscordBot\\qguaratBot\\qguaratBot\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Rado\\AppData\\Roaming\\NuGet\\NuGet.Config",

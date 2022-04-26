@@ -1,11 +1,10 @@
-using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 
 namespace qguaratBot
 {
     public static class ConfigManager
     {
-        private static string ConfigFolder = "Resources";
+        private static string ConfigFolder = "Config";
         private static string ConfigFile = "config.json";
         private static string ConfigPath = ConfigFolder + "/" + ConfigFile;
 
