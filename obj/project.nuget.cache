@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ziiKMJj6ml3aaGpEBpsab21aPQ1kU776wwSgMfJPUG2wXlj0Tj0+6zydBQdDEliW+X602qEXkl3V5trYafjyHg==",
+  "dgSpecHash": "vuFRHQq3DtGc6UxT88vorMVOMQQzZb9SlHos/G9tCu+Db6KfwiQxcLeVzKu7/7FZ0Up0Fw/r5kA3tES/veVBUg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Rado\\Documents\\projects\\DiscordBot\\D#Bot\\qguaratBot\\qguaratBot\\qguaratBot.csproj",
+  "projectFilePath": "C:\\Users\\Rado\\Documents\\projects\\DiscordBot\\qguaratBot\\qguaratBot.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Rado\\.nuget\\packages\\concurrenthashset\\1.1.0\\concurrenthashset.1.1.0.nupkg.sha512",
     "C:\\Users\\Rado\\.nuget\\packages\\discord.net.commands\\3.5.0\\discord.net.commands.3.5.0.nupkg.sha512",

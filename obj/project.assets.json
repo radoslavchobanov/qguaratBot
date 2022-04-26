@@ -4529,11 +4529,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Rado\\Documents\\projects\\DiscordBot\\D#Bot\\qguaratBot\\qguaratBot\\qguaratBot.csproj",
+      "projectUniqueName": "C:\\Users\\Rado\\Documents\\projects\\DiscordBot\\qguaratBot\\qguaratBot.csproj",
       "projectName": "qguaratBot",
-      "projectPath": "C:\\Users\\Rado\\Documents\\projects\\DiscordBot\\D#Bot\\qguaratBot\\qguaratBot\\qguaratBot.csproj",
+      "projectPath": "C:\\Users\\Rado\\Documents\\projects\\DiscordBot\\qguaratBot\\qguaratBot.csproj",
       "packagesPath": "C:\\Users\\Rado\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Rado\\Documents\\projects\\DiscordBot\\D#Bot\\qguaratBot\\qguaratBot\\obj\\",
+      "outputPath": "C:\\Users\\Rado\\Documents\\projects\\DiscordBot\\qguaratBot\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Rado\\AppData\\Roaming\\NuGet\\NuGet.Config",
