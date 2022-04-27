@@ -6,3 +6,6 @@ https://discord.com/api/oauth2/authorize?client_id=967391170512707595&permission
 
 # Get invitation for qguaratBot's server: 
 https://discord.gg/EsuteveMYa
+
+# !!! IMPORTANT INFO !!!
+In order to download the code and run a version of the bot for yourself, you will need a ! Lavalink ! server running.
