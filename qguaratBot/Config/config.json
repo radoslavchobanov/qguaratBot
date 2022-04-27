@@ -1,8 +1,8 @@
 {
-  "token": "TOKEN",
-  "prefix": "PREFIX",
-  "hostname": null,
-  "port": 0,
-  "password": null,
+  "token": "OTY3MzkxMTcwNTEyNzA3NTk1.YmPnPA.hS56lIi6Bo1yvKrnG4Z3HJGZjIo",
+  "prefix": "qguarat ",
+  "hostname": "127.0.0.1",
+  "port": 2333,
+  "password": "youshallnotpass",
   "caseSensitive": false
 }
