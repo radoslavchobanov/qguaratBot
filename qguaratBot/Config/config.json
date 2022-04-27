@@ -1,8 +1,5 @@
 {
   "token": "TOKEN",
   "prefix": "PREFIX",
-  "hostname": null,
-  "port": 0,
-  "password": null,
   "caseSensitive": false
 }

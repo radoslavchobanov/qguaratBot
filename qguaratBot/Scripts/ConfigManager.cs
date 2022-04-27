@@ -37,15 +37,6 @@ namespace qguaratBot
         [JsonProperty("prefix")]
         public string Prefix { get; private set; }
 
-        [JsonProperty("hostname")]
-        public string Hostname { get; private set; }
-
-        [JsonProperty("port")]
-        public int Port { get; private set; }
-
-        [JsonProperty("password")]
-        public string Password { get; private set; }
-
         [JsonProperty("caseSensitive")]
         public bool CaseSensitive { get; private set; }
 

@@ -75,15 +75,15 @@ namespace qguaratBot
         {
             return new ConnectionEndpoint
             {
-                Hostname = ConfigManager.Config.Hostname,
-                Port = ConfigManager.Config.Port,
+                Hostname = "127.0.0.1",
+                Port = 2333,
             };
         }
         private LavalinkConfiguration SetLavalinkConf(ConnectionEndpoint cep)
         {
             return new LavalinkConfiguration
             {
-                Password = ConfigManager.Config.Password,
+                Password = "youshallnotpass",
                 RestEndpoint = cep,
                 SocketEndpoint = cep,
             };
