@@ -104,6 +104,7 @@ namespace qguaratBot
             }
 
             var track = loadResult.Tracks.First();
+            
             await Bot.AddTrack(track);
         }
     }

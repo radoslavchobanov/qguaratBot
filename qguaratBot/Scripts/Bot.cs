@@ -29,10 +29,5 @@ namespace qguaratBot
             TrackAddedToQueue.Invoke(new object(), new TrackEventArgs(){Track = track});
             return Task.CompletedTask;
         }
-
-        public static void InvokeTrackAddedToQueue(LavalinkGuildConnection sender, TrackEventArgs a)
-        {
-            TrackAddedToQueue.Invoke(sender, a);
-        }
     }
 }
