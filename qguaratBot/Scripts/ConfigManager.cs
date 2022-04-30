@@ -13,10 +13,16 @@ namespace qguaratBot
         static ConfigManager()
         {
             if (!Directory.Exists(ConfigFolder))
+            {
+                Console.Log(Console.LogLevel.WARNING, "Config folder does not exist ... CREATING DIRECTORY !!!");
+
                 Directory.CreateDirectory(ConfigFolder);
+            }
 
             if (!File.Exists(ConfigPath))
             {
+                Console.Log(Console.LogLevel.WARNING, $"{ConfigPath}  does not exist, CREATING FILE !!!");
+
                 Config = new BotConfig();
                 var json = JsonConvert.SerializeObject(Config, Formatting.Indented);
                 File.WriteAllText(ConfigPath, json);
@@ -24,6 +30,13 @@ namespace qguaratBot
             else
             {
                 var json = File.ReadAllText(ConfigPath);
+
+                if (json == null)
+                {
+                    Console.Log(Console.LogLevel.ERROR, $"Could not read data from {ConfigFile} !!!");
+                    return;
+                }
+
                 Config = JsonConvert.DeserializeObject<BotConfig>(json);
             }
         }

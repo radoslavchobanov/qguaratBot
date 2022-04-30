@@ -30,7 +30,7 @@ namespace qguaratBot
             }
             else
             {
-                System.Console.WriteLine($"[{DateTime.Now}]\tTrack [{e.Track.Title}] is added to the queue!");
+                Console.Log(Console.LogLevel.INFO, $"Track [{e.Track.Title}] is added to the queue!");
                 await Bot.socketConnection.commandContext.RespondAsync($"Track [{e.Track.Title}] is added to the queue!");
             }
         }
@@ -38,7 +38,7 @@ namespace qguaratBot
         private static Task OnTrackFinished(LavalinkGuildConnection sender, TrackFinishEventArgs e)
         {
             Bot.IsPlaying = false;
-            System.Console.WriteLine($"[{DateTime.Now}]\tTrack [{e.Track.Title}] has finished!");
+            Console.Log(Console.LogLevel.INFO, $"Track [{e.Track.Title}] has finished!");
 
             PlayNextTrack();
 
@@ -63,7 +63,7 @@ namespace qguaratBot
             Task.Run(async () => await cnext.ExecuteCommandAsync(ctx));
 
 
-            System.Console.WriteLine($"[{DateTime.Now}]\t*{ctx.User.Username}* executed [{ctx.Command.Name}]");
+            Console.Log(Console.LogLevel.INFO, $"*{ctx.User.Username}* executed [{ctx.Command.Name}]");
             return Task.CompletedTask;
         }
 
@@ -71,7 +71,7 @@ namespace qguaratBot
         {
             SetBotStatus();
 
-            System.Console.WriteLine($"[{DateTime.Now}]\tBot is ready");
+            Console.Log(Console.LogLevel.INFO, "Bot is ready -----------");
         }
 
         private static void SetBotStatus()
@@ -87,7 +87,7 @@ namespace qguaratBot
         {
             if(Bot.Tracks.TryDequeue(out LavalinkTrack ?result))
             {
-                System.Console.WriteLine($"[{DateTime.Now}]\tNow playing [{result.Title}]");
+                Console.Log(Console.LogLevel.INFO, $"Now playing [{result.Title}]");
                 var conn = Bot.socketConnection.lavalinkNode.GetGuildConnection(Bot.socketConnection.commandContext?.Member.VoiceState.Guild);
                 Bot.IsPlaying = true;
                 await conn.PlayAsync(result);

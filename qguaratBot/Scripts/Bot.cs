@@ -18,6 +18,8 @@ namespace qguaratBot
 
         public async Task MainSync()
         {
+            socketConnection.RegisterCommands<MusicCommands>();
+
             await socketConnection.MainSync();
         }
 

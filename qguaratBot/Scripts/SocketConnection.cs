@@ -22,7 +22,6 @@ namespace qguaratBot
         public SocketConnection()
         {
             var services = new ServiceCollection()
-                .AddSingleton<Commands>()
                 .BuildServiceProvider();
 
             // if config.json file is missing it creates one
@@ -39,8 +38,6 @@ namespace qguaratBot
         
         public async Task MainSync()
         {
-            commandsNextExtension.RegisterCommands<Commands>();
-
             await discordClient.ConnectAsync();
 
             var lavalink = discordClient.UseLavalink();
@@ -49,6 +46,12 @@ namespace qguaratBot
             await EventManager.HandleEvents();
 
             await Task.Delay(-1);
+        }
+
+        public void RegisterCommands<T>() where T:BaseCommandModule
+        {
+            commandsNextExtension.RegisterCommands<T>();
+            Console.Log(Console.LogLevel.INFO, $"Commands: {typeof(T).ToString().Split(".")[1]} registered succesfully!");
         }
         
         private DiscordConfiguration SetDiscordConf()

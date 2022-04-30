@@ -5,7 +5,7 @@ using DSharpPlus.Lavalink;
 
 namespace qguaratBot
 {
-    public class Commands : BaseCommandModule
+    public class MusicCommands : BaseCommandModule
     {
         [Command("greet")]
         public async Task GreetCommand(CommandContext ctx)
@@ -30,20 +30,20 @@ namespace qguaratBot
             
             if (conn != null)
             {
-                System.Console.WriteLine($"[{DateTime.Now}]\tBot is already in channel! {channel.Name}");
+                Console.Log(Console.LogLevel.WARNING, $"Bot is already in channel! {channel.Name}");
                 await ctx.RespondAsync($"Bot is already in channel! {channel.Name}");
                 return;
             }
 
             if (channel.Type != ChannelType.Voice)
             {
-                System.Console.WriteLine($"[{DateTime.Now}]\tNot a valid voice channel {channel.Type}");
+                Console.Log(Console.LogLevel.ERROR, $"Not a valid voice channel {channel.Type}");
                 await ctx.RespondAsync("Not a valid voice channel.");
                 return;
             }
 
             await node.ConnectAsync(channel);
-            System.Console.WriteLine($"[{DateTime.Now}]\tBot Joined {channel.Name}");
+            Console.Log(Console.LogLevel.INFO, $"Bot Joined {channel.Name}");
             await ctx.RespondAsync($"Joined {channel.Name}!");
         }
         
@@ -64,7 +64,7 @@ namespace qguaratBot
 
             if (conn == null)
             {
-                System.Console.WriteLine($"[{DateTime.Now}]\tBot is not in a voice channel!");
+                Console.Log(Console.LogLevel.ERROR, $"Bot is not in a voice channel!");
                 await ctx.RespondAsync("Bot is not in a voice channel!");
                 return;
             }
@@ -72,7 +72,7 @@ namespace qguaratBot
             // when leaving, it should trigger the OnTrackFinished event
 
             await conn.DisconnectAsync();
-            System.Console.WriteLine($"[{DateTime.Now}]\tBot left {channel.Name}");
+            Console.Log(Console.LogLevel.INFO, $"Bot left {channel.Name}");
             await ctx.RespondAsync($"Left {channel.Name}!");
         }
 
