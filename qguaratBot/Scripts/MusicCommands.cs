@@ -22,9 +22,9 @@ namespace qguaratBot
                 return;
             }
 
-            Bot.socketConnection.commandContext = ctx;
+            Bot.ConnectionManager.commandContext = ctx;
 
-            var node = Bot.socketConnection.lavalinkNode;
+            var node = Bot.ConnectionManager.lavalinkNode;
             var channel = ctx.Member.VoiceState.Channel;
             var conn = node.GetGuildConnection(channel.Guild);
             
@@ -56,9 +56,9 @@ namespace qguaratBot
                 return;
             }
 
-            Bot.socketConnection.commandContext = null;
+            Bot.ConnectionManager.commandContext = null;
 
-            var node = Bot.socketConnection.lavalinkNode;
+            var node = Bot.ConnectionManager.lavalinkNode;
             var channel = ctx.Member.VoiceState.Channel;
             var conn = node.GetGuildConnection(channel.Guild);
 
@@ -104,8 +104,20 @@ namespace qguaratBot
             }
 
             var track = loadResult.Tracks.First();
-            
+
             await Bot.AddTrack(track);
+        }
+
+        [Command("skip")]
+        public async Task Skip(CommandContext ctx)
+        {
+            if (ctx.Member.VoiceState == null || ctx.Member.VoiceState.Channel == null)
+            {
+                await ctx.RespondAsync("You are not in a voice channel.");
+                return;
+            }
+
+            Bot.SkipTrack();
         }
     }
 }

@@ -6,7 +6,7 @@ using DSharpPlus.Net;
 
 namespace qguaratBot
 {
-    public class SocketConnection
+    public class ConnectionManager
     {
         // this is set when command JOIN is executed / when bot has joined a voice channel
         // and is used for Responding messages on the discord chat
@@ -17,9 +17,10 @@ namespace qguaratBot
         private CommandsNextExtension commandsNextExtension;
 
         public LavalinkNodeConnection lavalinkNode;
+
         private LavalinkConfiguration lavalinkConfiguration;
 
-        public SocketConnection()
+        public ConnectionManager()
         {
             var services = new ServiceCollection()
                 .BuildServiceProvider();

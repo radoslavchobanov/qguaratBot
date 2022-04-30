@@ -11,11 +11,13 @@ namespace qguaratBot
     {
         public static Task HandleEvents()
         {
-            Bot.socketConnection.discordClient.Ready += OnReady;
+            Bot.ConnectionManager.discordClient.Ready += OnReady;
 
-            Bot.socketConnection.discordClient.MessageCreated += OnMessageReceived;
+            Bot.ConnectionManager.discordClient.MessageCreated += OnMessageReceived;
 
-            Bot.socketConnection.lavalinkNode.PlaybackFinished += OnTrackFinished;
+            Bot.ConnectionManager.lavalinkNode.PlaybackStarted += OnTrackStarted;
+
+            Bot.ConnectionManager.lavalinkNode.PlaybackFinished += OnTrackFinished;
 
             Bot.TrackAddedToQueue += OnTrackAddedToQueue;
             
@@ -24,23 +26,40 @@ namespace qguaratBot
 
         private static async void OnTrackAddedToQueue(object? sender, TrackEventArgs e)
         {
-            if (!Bot.IsPlaying)
+            if (!Bot.isPlaying)
             {
-                PlayNextTrack();
+                Bot.PlayNextTrack();
             }
             else
             {
                 Console.Log(Console.LogLevel.INFO, $"Track [{e.Track.Title}] is added to the queue!");
-                await Bot.socketConnection.commandContext.RespondAsync($"Track [{e.Track.Title}] is added to the queue!");
+                await Bot.ConnectionManager.commandContext.RespondAsync($"Track [{e.Track.Title}] is added to the queue!");
             }
+        }
+
+        private static Task OnTrackStarted(LavalinkGuildConnection sender, TrackStartEventArgs e)
+        {
+            Bot.isPlaying = true;
+
+            Console.Log(Console.LogLevel.INFO, $"Now playing [{e.Track.Title}]");
+            Bot.ConnectionManager.commandContext.RespondAsync($"Now playing [{e.Track.Title}]!");
+
+            return Task.CompletedTask;
         }
 
         private static Task OnTrackFinished(LavalinkGuildConnection sender, TrackFinishEventArgs e)
         {
-            Bot.IsPlaying = false;
-            Console.Log(Console.LogLevel.INFO, $"Track [{e.Track.Title}] has finished!");
-
-            PlayNextTrack();
+            Bot.isPlaying = false;
+            
+            if (Bot.trackSkipped)
+            {
+                Console.Log(Console.LogLevel.INFO, $"Track [{e.Track.Title}] is skipped!");
+            }
+            else
+            {
+                Console.Log(Console.LogLevel.INFO, $"Track [{e.Track.Title}] has finished!");
+                Bot.PlayNextTrack();
+            }
 
             return Task.CompletedTask;
         }
@@ -76,23 +95,11 @@ namespace qguaratBot
 
         private static void SetBotStatus()
         {
-            Bot.socketConnection.discordClient.UpdateStatusAsync(new DiscordActivity
+            Bot.ConnectionManager.discordClient.UpdateStatusAsync(new DiscordActivity
             {
                 Name = "prefix *" + ConfigManager.Config.Prefix + "*",
                 ActivityType = ActivityType.ListeningTo
             });
-        }
-
-        private static async void PlayNextTrack()
-        {
-            if(Bot.Tracks.TryDequeue(out LavalinkTrack ?result))
-            {
-                Console.Log(Console.LogLevel.INFO, $"Now playing [{result.Title}]");
-                var conn = Bot.socketConnection.lavalinkNode.GetGuildConnection(Bot.socketConnection.commandContext?.Member.VoiceState.Guild);
-                Bot.IsPlaying = true;
-                await conn.PlayAsync(result);
-                await Bot.socketConnection.commandContext.RespondAsync($"Now playing [{result.Title}]!");
-            }
         }
     }
 }
