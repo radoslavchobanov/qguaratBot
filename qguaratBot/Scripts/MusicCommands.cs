@@ -81,6 +81,7 @@ namespace qguaratBot
         {
             if (ctx.Member.VoiceState == null || ctx.Member.VoiceState.Channel == null)
             {
+                Console.Log(Console.LogLevel.ERROR, $"You are not in a voice channel!");
                 await ctx.RespondAsync("You are not in a voice channel.");
                 return;
             }
@@ -99,13 +100,14 @@ namespace qguaratBot
             if (loadResult.LoadResultType == LavalinkLoadResultType.LoadFailed 
                 || loadResult.LoadResultType == LavalinkLoadResultType.NoMatches)
             {
-                await ctx.RespondAsync($"Track search failed for {search}.");
+                Console.Log(Console.LogLevel.ERROR, $"Track search failed for [{search}]");
+                await ctx.RespondAsync($"Track search failed for [{search}]");
                 return;
             }
 
             var track = loadResult.Tracks.First();
 
-            await Bot.AddTrack(track);
+            Bot.AddTrack(track);
         }
 
         [Command("skip")]
@@ -113,7 +115,19 @@ namespace qguaratBot
         {
             if (ctx.Member.VoiceState == null || ctx.Member.VoiceState.Channel == null)
             {
-                await ctx.RespondAsync("You are not in a voice channel.");
+                Console.Log(Console.LogLevel.ERROR, $"You are not in a voice channel!");
+                await ctx.RespondAsync("You are not in a voice channel!");
+                return;
+            }
+            
+            var lava = ctx.Client.GetLavalink();
+            var node = lava.ConnectedNodes.Values.First();
+            var conn = node.GetGuildConnection(ctx.Member.VoiceState.Guild);
+
+            if (conn == null)
+            {
+                Console.Log(Console.LogLevel.ERROR, $"Bot is not in a voice channel!");
+                await ctx.RespondAsync("Bot is not in a voice channel!");
                 return;
             }
 

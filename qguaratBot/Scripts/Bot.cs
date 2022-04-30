@@ -4,21 +4,22 @@ namespace qguaratBot
 {
     public class Bot
     {
-        public static bool trackSkipped = false;
-
         public static Queue<LavalinkTrack> Tracks {get; private set;}
         public static ConnectionManager ConnectionManager {get; private set;}
 
         #region Events
         public static event EventHandler<TrackEventArgs> TrackAddedToQueue;
+        public static event EventHandler AudioPlayerStopped;
         #endregion
         
         public static bool isPlaying;
 
+        public static int AFK_TIMER = ConfigManager.Config.AFK_TIMER;
+
         public Bot()
         {
-            ConnectionManager = new ConnectionManager();
             Tracks = new Queue<LavalinkTrack>();
+            ConnectionManager = new ConnectionManager();
             isPlaying = false;
         }
 
@@ -30,28 +31,27 @@ namespace qguaratBot
         }
         public static async Task PlayNextTrack()
         {
+            var audioPlayer = Bot.ConnectionManager.lavalinkNode.GetGuildConnection(Bot.ConnectionManager.commandContext?.Member.VoiceState.Guild);
+                
             if(Bot.Tracks.TryDequeue(out LavalinkTrack ?result))
             {
-                var conn = Bot.ConnectionManager.lavalinkNode.GetGuildConnection(Bot.ConnectionManager.commandContext?.Member.VoiceState.Guild);
-                await conn.PlayAsync(result);
+                await audioPlayer.PlayAsync(result);
             }
             else
             {
-                Console.Log(Console.LogLevel.WARNING, "Song queue is empty!");
+                await audioPlayer.StopAsync();
+                AudioPlayerStopped.Invoke(new object(), new EventArgs());
             }
         }
 
-        public static Task AddTrack(LavalinkTrack track)
+        public static void AddTrack(LavalinkTrack track)
         {
             Tracks.Enqueue(track);
             TrackAddedToQueue.Invoke(new object(), new TrackEventArgs(){Track = track});
-
-            return Task.CompletedTask;
         }
 
         public static async void SkipTrack()
         {
-            trackSkipped = true;
             if (isPlaying) await PlayNextTrack();
         }
     }

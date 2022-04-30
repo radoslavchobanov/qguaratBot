@@ -20,8 +20,20 @@ namespace qguaratBot
             Bot.ConnectionManager.lavalinkNode.PlaybackFinished += OnTrackFinished;
 
             Bot.TrackAddedToQueue += OnTrackAddedToQueue;
+
+            Bot.AudioPlayerStopped += OnAudioPlayerStopped;
             
             return Task.CompletedTask;
+        }
+
+        private static async void OnAudioPlayerStopped(object? sender, EventArgs e)
+        {
+            var audioPlayer = Bot.ConnectionManager.lavalinkNode.GetGuildConnection(Bot.ConnectionManager.commandContext?.Member.VoiceState.Guild);
+             
+            Console.Log(Console.LogLevel.WARNING, "AudioPlayer has stopped, song queue is empty!");
+
+            await Task.Delay(Bot.AFK_TIMER);
+            if (!Bot.isPlaying) await audioPlayer.DisconnectAsync();
         }
 
         private static async void OnTrackAddedToQueue(object? sender, TrackEventArgs e)
@@ -47,21 +59,19 @@ namespace qguaratBot
             return Task.CompletedTask;
         }
 
-        private static Task OnTrackFinished(LavalinkGuildConnection sender, TrackFinishEventArgs e)
+        public static async Task OnTrackFinished(LavalinkGuildConnection sender, TrackFinishEventArgs e)
         {
             Bot.isPlaying = false;
             
-            if (Bot.trackSkipped)
+            if (e.Reason is TrackEndReason.Replaced)
             {
                 Console.Log(Console.LogLevel.INFO, $"Track [{e.Track.Title}] is skipped!");
             }
-            else
+            else if (e.Reason is TrackEndReason.Finished)
             {
                 Console.Log(Console.LogLevel.INFO, $"Track [{e.Track.Title}] has finished!");
-                Bot.PlayNextTrack();
+                await Bot.PlayNextTrack();
             }
-
-            return Task.CompletedTask;
         }
 
         private static Task OnMessageReceived(DiscordClient client, MessageCreateEventArgs e)

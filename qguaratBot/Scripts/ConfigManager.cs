@@ -53,6 +53,9 @@ namespace qguaratBot
         [JsonProperty("caseSensitive")]
         public bool CaseSensitive { get; private set; }
 
+        [JsonProperty("afkTimer")]
+        public int AFK_TIMER { get; private set; }
+
         // [JsonProperty("minimumLogLevel")]
         // public LogLevel MinimumLogLevel { get; private set; }
 
