@@ -19,7 +19,7 @@ namespace qguaratBot
         [Description("Return a number from 0 to 100")]
         public async Task Roll(CommandContext ctx)
         {
-            await ctx.RespondAsync(Bot.CreateEmbed(ctx.User.Username + " rolled: " + GetRandom()));
+            await ctx.RespondAsync(Bot.CreateEmbed("rolled: " + GetRandom()));
         }
 
         // get random number from 0 to 100

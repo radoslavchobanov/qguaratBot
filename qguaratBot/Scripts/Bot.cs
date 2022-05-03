@@ -54,13 +54,18 @@ namespace qguaratBot
             if (isPlaying) await PlayNextTrack();
         }
 
-        public static DiscordEmbedBuilder CreateEmbed(string text)
+        public static DiscordEmbedBuilder CreateEmbed(string text, string emojiName = null)
         {
+            // text.Insert(0, emojiName);
+            text += " | " + ConnectionManager.commandContext.Member?.Mention;
+
             DiscordEmbedBuilder embed = new DiscordEmbedBuilder()
             {
                 Description = text,
+
                 Color = DiscordColor.SpringGreen,
             };
+
             return embed;
         }
     }
