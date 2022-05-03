@@ -11,28 +11,26 @@ namespace qguaratBot
     {
         public static Task HandleEvents()
         {
-            Bot.ConnectionManager.discordClient.Ready += OnReady;
+            ConnectionManager.discordClient.Ready += OnReady;
+            ConnectionManager.discordClient.MessageCreated += OnMessageReceived;
+            ConnectionManager.lavalinkNode.PlaybackStarted += OnTrackStarted;
+            ConnectionManager.lavalinkNode.PlaybackFinished += OnTrackFinished;
 
-            Bot.ConnectionManager.discordClient.MessageCreated += OnMessageReceived;
-
-            Bot.ConnectionManager.lavalinkNode.PlaybackStarted += OnTrackStarted;
-
-            Bot.ConnectionManager.lavalinkNode.PlaybackFinished += OnTrackFinished;
-
+            // Custom made events ---------------------------------------
             Bot.TrackAddedToQueue += OnTrackAddedToQueue;
-
             Bot.AudioPlayerStopped += OnAudioPlayerStopped;
+            // ----------------------------------------------------------
             
             return Task.CompletedTask;
         }
 
         private static async void OnAudioPlayerStopped(object? sender, EventArgs e)
         {
-            var audioPlayer = Bot.ConnectionManager.lavalinkNode.GetGuildConnection(Bot.ConnectionManager.commandContext?.Member.VoiceState.Guild);
+            var audioPlayer = ConnectionManager.lavalinkNode.GetGuildConnection(ConnectionManager.commandContext?.Member.VoiceState.Guild);
              
             Console.Log(Console.LogLevel.WARNING, "AudioPlayer has stopped, song queue is empty!");
 
-            await Task.Delay(Bot.AFK_TIMER);
+            await Task.Delay(ConfigManager.Config.AFK_TIMER);
             if (!Bot.isPlaying) await audioPlayer.DisconnectAsync();
         }
 
@@ -44,8 +42,8 @@ namespace qguaratBot
             }
             else
             {
-                Console.Log(Console.LogLevel.INFO, $"Track [{e.Track.Title}] is added to the queue!");
-                await Bot.ConnectionManager.commandContext.RespondAsync($"Track [{e.Track.Title}] is added to the queue!");
+                Console.Log(Console.LogLevel.INFO, $"Queued [{e.Track.Title}]");
+                await ConnectionManager.commandContext.RespondAsync(Bot.CreateEmbed($"Queued [{e.Track.Title}]"));
             }
         }
 
@@ -54,7 +52,7 @@ namespace qguaratBot
             Bot.isPlaying = true;
 
             Console.Log(Console.LogLevel.INFO, $"Now playing [{e.Track.Title}]");
-            Bot.ConnectionManager.commandContext.RespondAsync($"Now playing [{e.Track.Title}]!");
+            ConnectionManager.commandContext.RespondAsync(Bot.CreateEmbed($"Now playing [{e.Track.Title}]!"));
 
             return Task.CompletedTask;
         }
@@ -105,7 +103,7 @@ namespace qguaratBot
 
         private static void SetBotStatus()
         {
-            Bot.ConnectionManager.discordClient.UpdateStatusAsync(new DiscordActivity
+            ConnectionManager.discordClient.UpdateStatusAsync(new DiscordActivity
             {
                 Name = "prefix *" + ConfigManager.Config.Prefix + "*",
                 ActivityType = ActivityType.ListeningTo

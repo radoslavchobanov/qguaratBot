@@ -1,3 +1,4 @@
+using DSharpPlus.Entities;
 using DSharpPlus.Lavalink;
 
 namespace qguaratBot
@@ -5,33 +6,31 @@ namespace qguaratBot
     public class Bot
     {
         public static Queue<LavalinkTrack> Tracks {get; private set;}
-        public static ConnectionManager ConnectionManager {get; private set;}
-
+        public static bool isPlaying;
+        
         #region Events
         public static event EventHandler<TrackEventArgs> TrackAddedToQueue;
         public static event EventHandler AudioPlayerStopped;
         #endregion
-        
-        public static bool isPlaying;
-
-        public static int AFK_TIMER = ConfigManager.Config.AFK_TIMER;
 
         public Bot()
         {
             Tracks = new Queue<LavalinkTrack>();
-            ConnectionManager = new ConnectionManager();
             isPlaying = false;
         }
 
         public async Task MainSync()
         {
+            ConnectionManager.Initialize();
+            ConnectionManager.commandsNextExtension.SetHelpFormatter<CustomHelpFormatter>();
             ConnectionManager.RegisterCommands<MusicCommands>();
+            ConnectionManager.RegisterCommands<RandomCommands>();
 
             await ConnectionManager.MainSync();
         }
         public static async Task PlayNextTrack()
         {
-            var audioPlayer = Bot.ConnectionManager.lavalinkNode.GetGuildConnection(Bot.ConnectionManager.commandContext?.Member.VoiceState.Guild);
+            var audioPlayer = ConnectionManager.lavalinkNode.GetGuildConnection(ConnectionManager.commandContext?.Member.VoiceState.Guild);
                 
             if(Bot.Tracks.TryDequeue(out LavalinkTrack ?result))
             {
@@ -47,12 +46,22 @@ namespace qguaratBot
         public static void AddTrack(LavalinkTrack track)
         {
             Tracks.Enqueue(track);
-            TrackAddedToQueue.Invoke(new object(), new TrackEventArgs(){Track = track});
+            TrackAddedToQueue(new object(), new TrackEventArgs(){Track = track});
         }
 
         public static async void SkipTrack()
         {
             if (isPlaying) await PlayNextTrack();
+        }
+
+        public static DiscordEmbedBuilder CreateEmbed(string text)
+        {
+            DiscordEmbedBuilder embed = new DiscordEmbedBuilder()
+            {
+                Description = text,
+                Color = DiscordColor.SpringGreen,
+            };
+            return embed;
         }
     }
 }

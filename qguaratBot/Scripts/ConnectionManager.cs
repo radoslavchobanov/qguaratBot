@@ -6,21 +6,21 @@ using DSharpPlus.Net;
 
 namespace qguaratBot
 {
-    public class ConnectionManager
+    public static class ConnectionManager
     {
         // this is set when command JOIN is executed / when bot has joined a voice channel
         // and is used for Responding messages on the discord chat
-        public CommandContext commandContext;
+        public static CommandContext commandContext;
 
-        public DiscordClient discordClient;
-        private DiscordConfiguration discordConfiguration;
-        private CommandsNextExtension commandsNextExtension;
+        public static DiscordClient discordClient;
+        public static DiscordConfiguration discordConfiguration;
+        public static CommandsNextExtension commandsNextExtension;
 
-        public LavalinkNodeConnection lavalinkNode;
+        public static LavalinkNodeConnection lavalinkNode;
 
-        private LavalinkConfiguration lavalinkConfiguration;
-
-        public ConnectionManager()
+        public static LavalinkConfiguration lavalinkConfiguration;
+        
+        public static void Initialize()
         {
             var services = new ServiceCollection()
                 .BuildServiceProvider();
@@ -36,8 +36,7 @@ namespace qguaratBot
             lavalinkConfiguration = SetLavalinkConf(SetConnectionEndpointConf());
         }
         
-        
-        public async Task MainSync()
+        public static async Task MainSync()
         {
             await discordClient.ConnectAsync();
 
@@ -49,13 +48,13 @@ namespace qguaratBot
             await Task.Delay(-1);
         }
 
-        public void RegisterCommands<T>() where T:BaseCommandModule
+        public static void RegisterCommands<T>() where T:BaseCommandModule
         {
             commandsNextExtension.RegisterCommands<T>();
             Console.Log(Console.LogLevel.INFO, $"Commands: {typeof(T).ToString().Split(".")[1]} registered succesfully!");
         }
         
-        private DiscordConfiguration SetDiscordConf()
+        private static DiscordConfiguration SetDiscordConf()
         {
             return new DiscordConfiguration()
             {
@@ -65,7 +64,7 @@ namespace qguaratBot
             };
         }
         
-        private CommandsNextConfiguration SetCommandsNextConf(IServiceProvider services)
+        private static CommandsNextConfiguration SetCommandsNextConf(IServiceProvider services)
         {
             return new CommandsNextConfiguration()
             {
@@ -75,7 +74,7 @@ namespace qguaratBot
                 StringPrefixes = new[] {ConfigManager.Config.Prefix},
             };
         }
-        private ConnectionEndpoint SetConnectionEndpointConf()
+        private static ConnectionEndpoint SetConnectionEndpointConf()
         {
             return new ConnectionEndpoint
             {
@@ -83,7 +82,7 @@ namespace qguaratBot
                 Port = 2333,
             };
         }
-        private LavalinkConfiguration SetLavalinkConf(ConnectionEndpoint cep)
+        private static LavalinkConfiguration SetLavalinkConf(ConnectionEndpoint cep)
         {
             return new LavalinkConfiguration
             {

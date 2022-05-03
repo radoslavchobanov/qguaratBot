@@ -7,65 +7,61 @@ namespace qguaratBot
 {
     public class MusicCommands : BaseCommandModule
     {
-        [Command("greet")]
-        public async Task GreetCommand(CommandContext ctx)
-        {
-            await ctx.RespondAsync("GREETINGS");
-        }
-
         [Command("join")]
+        [Description("Joins the bot to the user's channel")]
         public async Task JoinCommand(CommandContext ctx)
         {
             if (ctx.Member.VoiceState == null || ctx.Member.VoiceState.Channel == null)
             {
-                await ctx.RespondAsync("You are not in a voice channel.");
+                await ctx.RespondAsync(Bot.CreateEmbed("You are not in a voice channel."));
                 return;
             }
 
-            Bot.ConnectionManager.commandContext = ctx;
+            ConnectionManager.commandContext = ctx;
 
-            var node = Bot.ConnectionManager.lavalinkNode;
+            var node = ConnectionManager.lavalinkNode;
             var channel = ctx.Member.VoiceState.Channel;
             var conn = node.GetGuildConnection(channel.Guild);
             
             if (conn != null)
             {
                 Console.Log(Console.LogLevel.WARNING, $"Bot is already in channel! {channel.Name}");
-                await ctx.RespondAsync($"Bot is already in channel! {channel.Name}");
+                await ctx.RespondAsync(Bot.CreateEmbed($"Bot is already in channel! {channel.Name}"));
                 return;
             }
 
             if (channel.Type != ChannelType.Voice)
             {
                 Console.Log(Console.LogLevel.ERROR, $"Not a valid voice channel {channel.Type}");
-                await ctx.RespondAsync("Not a valid voice channel.");
+                await ctx.RespondAsync(Bot.CreateEmbed("Not a valid voice channel."));
                 return;
             }
 
             await node.ConnectAsync(channel);
             Console.Log(Console.LogLevel.INFO, $"Bot Joined {channel.Name}");
-            await ctx.RespondAsync($"Joined {channel.Name}!");
+            await ctx.RespondAsync(Bot.CreateEmbed($"Joined {channel.Name}!"));
         }
         
         [Command("leave")]
+        [Description("Disconnects the bot from the current channel if the users is in it")]
         public async Task LeaveCommand(CommandContext ctx)
         {
             if (ctx.Member.VoiceState == null || ctx.Member.VoiceState.Channel == null)
             {
-                await ctx.RespondAsync("You are not in a voice channel.");
+                await ctx.RespondAsync(Bot.CreateEmbed("You are not in a voice channel."));
                 return;
             }
 
-            Bot.ConnectionManager.commandContext = null;
+            ConnectionManager.commandContext = null;
 
-            var node = Bot.ConnectionManager.lavalinkNode;
+            var node = ConnectionManager.lavalinkNode;
             var channel = ctx.Member.VoiceState.Channel;
             var conn = node.GetGuildConnection(channel.Guild);
 
             if (conn == null)
             {
                 Console.Log(Console.LogLevel.ERROR, $"Bot is not in a voice channel!");
-                await ctx.RespondAsync("Bot is not in a voice channel!");
+                await ctx.RespondAsync(Bot.CreateEmbed("Bot is not in a voice channel!"));
                 return;
             }
 
@@ -73,16 +69,17 @@ namespace qguaratBot
 
             await conn.DisconnectAsync();
             Console.Log(Console.LogLevel.INFO, $"Bot left {channel.Name}");
-            await ctx.RespondAsync($"Left {channel.Name}!");
+            await ctx.RespondAsync(Bot.CreateEmbed($"Left {channel.Name}!"));
         }
 
         [Command("play")]
+        [Description("Plays music with a given link or song name")]
         public async Task Play(CommandContext ctx, [RemainingText] string search)
         {
             if (ctx.Member.VoiceState == null || ctx.Member.VoiceState.Channel == null)
             {
                 Console.Log(Console.LogLevel.ERROR, $"You are not in a voice channel!");
-                await ctx.RespondAsync("You are not in a voice channel.");
+                await ctx.RespondAsync(Bot.CreateEmbed("You are not in a voice channel."));
                 return;
             }
 
@@ -101,7 +98,7 @@ namespace qguaratBot
                 || loadResult.LoadResultType == LavalinkLoadResultType.NoMatches)
             {
                 Console.Log(Console.LogLevel.ERROR, $"Track search failed for [{search}]");
-                await ctx.RespondAsync($"Track search failed for [{search}]");
+                await ctx.RespondAsync(Bot.CreateEmbed($"Track search failed for [{search}]"));
                 return;
             }
 
@@ -111,12 +108,13 @@ namespace qguaratBot
         }
 
         [Command("skip")]
+        [Description("Skips currently played song")]
         public async Task Skip(CommandContext ctx)
         {
             if (ctx.Member.VoiceState == null || ctx.Member.VoiceState.Channel == null)
             {
                 Console.Log(Console.LogLevel.ERROR, $"You are not in a voice channel!");
-                await ctx.RespondAsync("You are not in a voice channel!");
+                await ctx.RespondAsync(Bot.CreateEmbed("You are not in a voice channel!"));
                 return;
             }
             
@@ -127,7 +125,7 @@ namespace qguaratBot
             if (conn == null)
             {
                 Console.Log(Console.LogLevel.ERROR, $"Bot is not in a voice channel!");
-                await ctx.RespondAsync("Bot is not in a voice channel!");
+                await ctx.RespondAsync(Bot.CreateEmbed("Bot is not in a voice channel!"));
                 return;
             }
 
