@@ -17,8 +17,6 @@ namespace qguaratBot
                 return;
             }
 
-            ConnectionManager.commandContext = ctx;
-
             var node = ConnectionManager.lavalinkNode;
             var channel = ctx.Member.VoiceState.Channel;
             var conn = node.GetGuildConnection(channel.Guild);

@@ -76,6 +76,9 @@ namespace qguaratBot
 
         private static Task OnMessageReceived(DiscordClient client, MessageCreateEventArgs e)
         {
+            if (e.Message.Content.Split(" ")[0] == "ami")
+                ConnectionManager.commandContext.RespondAsync(Bot.CreateEmbed("STIGA POLZVA AMI-TO PEDAL"));
+
             var cnext = client.GetCommandsNext();
             var msg = e.Message;
 
