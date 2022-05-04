@@ -76,8 +76,13 @@ namespace qguaratBot
 
         private static Task OnMessageReceived(DiscordClient client, MessageCreateEventArgs e)
         {
+            // this is triggered if the server is using ami bot, to curse them
             if (e.Message.Content.Split(" ")[0] == "ami")
+            {
+                Console.Log(Console.LogLevel.WARNING, $"[{ConnectionManager.commandContext.User.Username}] USED THE AMI BOT");
                 ConnectionManager.commandContext.RespondAsync(Bot.CreateEmbed("STIGA POLZVA AMI-TO PEDAL"));
+            }
+            // ------------------------------
 
             var cnext = client.GetCommandsNext();
             var msg = e.Message;
