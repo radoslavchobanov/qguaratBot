@@ -12,14 +12,14 @@ namespace qguaratBot
         [Description("Greet you")]
         public async Task GreetCommand(CommandContext ctx)
         {
-            await ctx.RespondAsync(Bot.CreateEmbed("GREETINGS"));
+            await ctx.RespondAsync(Bot.CreateEmbed("GREETINGS", ":wave:"));
         }
         
         [Command("roll")]
         [Description("Return a number from 0 to 100")]
         public async Task Roll(CommandContext ctx)
         {
-            await ctx.RespondAsync(Bot.CreateEmbed("rolled: " + GetRandom()));
+            await ctx.RespondAsync(Bot.CreateEmbed("rolled: " + GetRandom(), ":game_die:"));
         }
 
         // get random number from 0 to 100

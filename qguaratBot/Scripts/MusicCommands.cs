@@ -13,7 +13,7 @@ namespace qguaratBot
         {
             if (ctx.Member.VoiceState == null || ctx.Member.VoiceState.Channel == null)
             {
-                await ctx.RespondAsync(Bot.CreateEmbed("You are not in a voice channel."));
+                await ctx.RespondAsync(Bot.CreateEmbed("You are not in a voice channel.", ":no_entry_sign:"));
                 return;
             }
 
@@ -33,13 +33,13 @@ namespace qguaratBot
             if (channel.Type != ChannelType.Voice)
             {
                 Console.Log(Console.LogLevel.ERROR, $"Not a valid voice channel {channel.Type}");
-                await ctx.RespondAsync(Bot.CreateEmbed("Not a valid voice channel."));
+                await ctx.RespondAsync(Bot.CreateEmbed("Not a valid voice channel.", ":no_entry_sign:"));
                 return;
             }
 
             await node.ConnectAsync(channel);
             Console.Log(Console.LogLevel.INFO, $"Bot Joined {channel.Name}");
-            await ctx.RespondAsync(Bot.CreateEmbed($"Joined {channel.Name}!"));
+            await ctx.RespondAsync(Bot.CreateEmbed($"Joined {channel.Name}!", ":white_check_mark:"));
         }
         
         [Command("leave")]
@@ -48,7 +48,7 @@ namespace qguaratBot
         {
             if (ctx.Member.VoiceState == null || ctx.Member.VoiceState.Channel == null)
             {
-                await ctx.RespondAsync(Bot.CreateEmbed("You are not in a voice channel."));
+                await ctx.RespondAsync(Bot.CreateEmbed("You are not in a voice channel.", ":no_entry_sign:"));
                 return;
             }
 
@@ -61,7 +61,7 @@ namespace qguaratBot
             if (conn == null)
             {
                 Console.Log(Console.LogLevel.ERROR, $"Bot is not in a voice channel!");
-                await ctx.RespondAsync(Bot.CreateEmbed("Bot is not in a voice channel!"));
+                await ctx.RespondAsync(Bot.CreateEmbed("Bot is not in a voice channel!", ":no_entry_sign:"));
                 return;
             }
 
@@ -69,7 +69,7 @@ namespace qguaratBot
 
             await conn.DisconnectAsync();
             Console.Log(Console.LogLevel.INFO, $"Bot left {channel.Name}");
-            await ctx.RespondAsync(Bot.CreateEmbed($"Left {channel.Name}!"));
+            await ctx.RespondAsync(Bot.CreateEmbed($"Left {channel.Name}!", ":exclamation:"));
         }
 
         [Command("play")]
@@ -79,7 +79,7 @@ namespace qguaratBot
             if (ctx.Member.VoiceState == null || ctx.Member.VoiceState.Channel == null)
             {
                 Console.Log(Console.LogLevel.ERROR, $"You are not in a voice channel!");
-                await ctx.RespondAsync(Bot.CreateEmbed("You are not in a voice channel."));
+                await ctx.RespondAsync(Bot.CreateEmbed("You are not in a voice channel.", ":no_entry_sign:"));
                 return;
             }
 
@@ -98,7 +98,7 @@ namespace qguaratBot
                 || loadResult.LoadResultType == LavalinkLoadResultType.NoMatches)
             {
                 Console.Log(Console.LogLevel.ERROR, $"Track search failed for [{search}]");
-                await ctx.RespondAsync(Bot.CreateEmbed($"Track search failed for [{search}]"));
+                await ctx.RespondAsync(Bot.CreateEmbed($"Track search failed for [{search}]", ":exclamation:"));
                 return;
             }
 
@@ -114,7 +114,7 @@ namespace qguaratBot
             if (ctx.Member.VoiceState == null || ctx.Member.VoiceState.Channel == null)
             {
                 Console.Log(Console.LogLevel.ERROR, $"You are not in a voice channel!");
-                await ctx.RespondAsync(Bot.CreateEmbed("You are not in a voice channel!"));
+                await ctx.RespondAsync(Bot.CreateEmbed("You are not in a voice channel!", ":no_entry_sign:"));
                 return;
             }
             
@@ -125,7 +125,7 @@ namespace qguaratBot
             if (conn == null)
             {
                 Console.Log(Console.LogLevel.ERROR, $"Bot is not in a voice channel!");
-                await ctx.RespondAsync(Bot.CreateEmbed("Bot is not in a voice channel!"));
+                await ctx.RespondAsync(Bot.CreateEmbed("Bot is not in a voice channel!", ":no_entry_sign:"));
                 return;
             }
 

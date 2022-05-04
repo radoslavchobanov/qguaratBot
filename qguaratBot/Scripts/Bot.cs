@@ -56,8 +56,12 @@ namespace qguaratBot
 
         public static DiscordEmbedBuilder CreateEmbed(string text, string emojiName = null)
         {
-            // text.Insert(0, emojiName);
-            text += " | " + ConnectionManager.commandContext.Member?.Mention;
+            if (emojiName != null)
+            {
+                var emoji = DiscordEmoji.FromName(ConnectionManager.discordClient, emojiName);
+                text = text.Insert(0, emoji);
+            }
+            text += " | " + ConnectionManager.commandContext?.Member?.Mention;
 
             DiscordEmbedBuilder embed = new DiscordEmbedBuilder()
             {
