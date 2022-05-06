@@ -1,5 +1,6 @@
 using DSharpPlus.Entities;
 using DSharpPlus.Lavalink;
+using DSharpPlus.CommandsNext;
 
 namespace qguaratBot
 {

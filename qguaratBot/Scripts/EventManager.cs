@@ -38,7 +38,7 @@ namespace qguaratBot
         {
             if (!Bot.isPlaying)
             {
-                Bot.PlayNextTrack();
+                await Bot.PlayNextTrack();
             }
             else
             {
@@ -76,11 +76,11 @@ namespace qguaratBot
 
         private static Task OnMessageReceived(DiscordClient client, MessageCreateEventArgs e)
         {
-            // this is triggered if the server is using ami bot, to curse them
+            // this is triggered if the server is using AMI bot, to curse them
             if (e.Message.Content.Split(" ")[0] == "ami")
             {
-                Console.Log(Console.LogLevel.WARNING, $"[{ConnectionManager.commandContext.User.Username}] USED THE AMI BOT");
-                ConnectionManager.commandContext.RespondAsync(Bot.CreateEmbed("STIGA POLZVA AMI-TO PEDAL"));
+                Console.Log(Console.LogLevel.WARNING, $"[{e.Author.Username}] USED THE AMI BOT");
+                e.Channel.SendMessageAsync(Bot.CreateEmbed("STIGA POLZVA AMI-TO PEDAL"));
             }
             // ------------------------------
 
@@ -98,7 +98,6 @@ namespace qguaratBot
 
             var ctx = cnext.CreateContext(msg, prefix, command, args);
             Task.Run(async () => await cnext.ExecuteCommandAsync(ctx));
-
 
             Console.Log(Console.LogLevel.INFO, $"*{ctx.User.Username}* executed [{ctx.Command.Name}]");
             return Task.CompletedTask;

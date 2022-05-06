@@ -10,7 +10,9 @@ namespace qguaratBot
         [Command("join")]
         [Description("Joins the bot to the user's channel")]
         public async Task JoinCommand(CommandContext ctx)
-        {
+        {   
+            ConnectionManager.commandContext = ctx;
+
             if (ctx.Member.VoiceState == null || ctx.Member.VoiceState.Channel == null)
             {
                 await ctx.RespondAsync(Bot.CreateEmbed("You are not in a voice channel.", ":no_entry_sign:"));

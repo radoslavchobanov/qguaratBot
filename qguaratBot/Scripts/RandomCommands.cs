@@ -13,8 +13,6 @@ namespace qguaratBot
         public async Task GreetCommand(CommandContext ctx)
         {
             await ctx.RespondAsync(Bot.CreateEmbed("GREETINGS", ":wave:"));
-            
-            ConnectionManager.commandContext = ctx;
         }
         
         [Command("roll")]
