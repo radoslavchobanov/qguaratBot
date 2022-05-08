@@ -43,7 +43,7 @@ namespace qguaratBot
             else
             {
                 Console.Log(Console.LogLevel.INFO, $"Queued [{e.Track.Title}]");
-                await ConnectionManager.commandContext.RespondAsync(Bot.CreateEmbed($"Queued [{e.Track.Title}]", ":white_check_mark:"));
+                await ConnectionManager.commandContext.RespondAsync(Bot.CreateEmbed($"Queued [{e.Track.Title}]", Emojis.whiteCheckMark));
             }
         }
 
@@ -52,7 +52,7 @@ namespace qguaratBot
             Bot.isPlaying = true;
 
             Console.Log(Console.LogLevel.INFO, $"Now playing [{e.Track.Title}]");
-            ConnectionManager.commandContext.RespondAsync(Bot.CreateEmbed($"Now playing [{e.Track.Title}]", ":notes:"));
+            ConnectionManager.commandContext.RespondAsync(Bot.CreateEmbed($"Now playing [{e.Track.Title}]", Emojis.notes));
 
             return Task.CompletedTask;
         }
@@ -64,12 +64,12 @@ namespace qguaratBot
             if (e.Reason is TrackEndReason.Replaced)
             {
                 Console.Log(Console.LogLevel.INFO, $"Track [{e.Track.Title}] is skipped!");
-                await ConnectionManager.commandContext.RespondAsync(Bot.CreateEmbed($"Skipped [{e.Track.Title}]", ":track_next:"));
+                await ConnectionManager.commandContext.RespondAsync(Bot.CreateEmbed($"Skipped [{e.Track.Title}]", Emojis.tracknext));
             }
             else if (e.Reason is TrackEndReason.Finished)
             {
                 Console.Log(Console.LogLevel.INFO, $"Track [{e.Track.Title}] has finished!");
-                await ConnectionManager.commandContext.RespondAsync(Bot.CreateEmbed($"Finished [{e.Track.Title}]", ":checkered_flag:"));
+                await ConnectionManager.commandContext.RespondAsync(Bot.CreateEmbed($"Finished [{e.Track.Title}]", Emojis.CheckeredFlag));
                 await Bot.PlayNextTrack();
             }
         }
