@@ -1,8 +1,5 @@
-using DSharpPlus;
 using DSharpPlus.CommandsNext;
 using DSharpPlus.CommandsNext.Attributes;
-using DSharpPlus.CommandsNext.Converters;
-using DSharpPlus.Entities;
 
 namespace qguaratBot
 {
@@ -12,6 +9,7 @@ namespace qguaratBot
         [Description("Greet you")]
         public async Task GreetCommand(CommandContext ctx)
         {
+            ConnectionManager.commandContext = ctx;
             await ctx.RespondAsync(Bot.CreateEmbed("GREETINGS", ":wave:"));
         }
         
@@ -19,6 +17,7 @@ namespace qguaratBot
         [Description("Return a number from 0 to 100")]
         public async Task Roll(CommandContext ctx)
         {
+            ConnectionManager.commandContext = ctx;
             await ctx.RespondAsync(Bot.CreateEmbed("rolled: " + GetRandom(), ":game_die:"));
         }
 

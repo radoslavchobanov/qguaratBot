@@ -10,7 +10,7 @@ namespace qguaratBot
         [Command("join")]
         [Description("Joins the bot to the user's channel")]
         public async Task JoinCommand(CommandContext ctx)
-        {   
+        {
             ConnectionManager.commandContext = ctx;
 
             if (ctx.Member.VoiceState == null || ctx.Member.VoiceState.Channel == null)
@@ -76,6 +76,8 @@ namespace qguaratBot
         [Description("Plays music with a given link or song name")]
         public async Task Play(CommandContext ctx, [RemainingText] string search)
         {
+            ConnectionManager.commandContext = ctx;
+
             if (ctx.Member.VoiceState == null || ctx.Member.VoiceState.Channel == null)
             {
                 Console.Log(Console.LogLevel.ERROR, $"You are not in a voice channel!");
@@ -111,6 +113,8 @@ namespace qguaratBot
         [Description("Skips currently played song")]
         public async Task Skip(CommandContext ctx)
         {
+            ConnectionManager.commandContext = ctx;
+            
             if (ctx.Member.VoiceState == null || ctx.Member.VoiceState.Channel == null)
             {
                 Console.Log(Console.LogLevel.ERROR, $"You are not in a voice channel!");
