@@ -80,7 +80,7 @@ namespace qguaratBot
             if (e.Message.Content.Split(" ")[0] == "ami")
             {
                 Console.Log(Console.LogLevel.WARNING, $"[{e.Author.Username}] USED THE AMI BOT");
-                e.Channel.SendMessageAsync(Bot.CreateEmbed("STIGA POLZVA AMI-TO PEDAL"));
+                e.Channel.SendMessageAsync(Bot.CreateEmbed("STIGA POLZVA AMI-TO PEDAL", null, e.Author));
             }
             // ------------------------------
 

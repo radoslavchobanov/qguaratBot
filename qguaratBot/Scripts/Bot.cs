@@ -55,14 +55,14 @@ namespace qguaratBot
             if (isPlaying) await PlayNextTrack();
         }
 
-        public static DiscordEmbedBuilder CreateEmbed(string text, string emojiName = null)
+        public static DiscordEmbedBuilder CreateEmbed(string text, string emojiName = null, DiscordUser user = null)
         {
             if (emojiName != null)
             {
                 var emoji = DiscordEmoji.FromName(ConnectionManager.discordClient, emojiName);
                 text = text.Insert(0, emoji);
             }
-            text += " | " + ConnectionManager.commandContext?.Member?.Mention;
+            text += " | " + user ?? ConnectionManager.commandContext?.User?.Mention;
 
             DiscordEmbedBuilder embed = new DiscordEmbedBuilder()
             {
