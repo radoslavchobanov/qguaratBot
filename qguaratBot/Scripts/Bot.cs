@@ -62,7 +62,7 @@ namespace qguaratBot
                 var emoji = DiscordEmoji.FromName(ConnectionManager.discordClient, emojiName);
                 text = text.Insert(0, emoji);
             }
-            text += " | " + user ?? ConnectionManager.commandContext?.User?.Mention;
+            text += " | " + user.Mention ?? ConnectionManager.commandContext?.User?.Mention;
 
             DiscordEmbedBuilder embed = new DiscordEmbedBuilder()
             {
